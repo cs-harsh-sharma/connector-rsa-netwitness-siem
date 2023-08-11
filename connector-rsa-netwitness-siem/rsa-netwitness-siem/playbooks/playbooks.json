@@ -1,0 +1,260 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@type": "WorkflowCollection",
+      "name": "Sample - RSA Netwitness SIEM - 1.0.0",
+      "description": "The RSA NetWitness Platform is an evolved SIEM and threat detection and response solution that allows security teams to rapidly detect and respond to any threat, anywhere. This connector facilitates the automated operations like Get Incident, Get Incidents by Date Range and Get Incident Related Alerts.",
+      "visible": true,
+      "image": null,
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Incident Related Alerts",
+          "description": "All the alerts that are associated with an incident can be retrieved using the incident’s unique identifier.",
+          "collection": "/api/3/workflow_collections/8f9859c4-8910-4eae-8a9b-0cf575ba3b65",
+          "tag": "#RSA Netwitness SIEM",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/33d8d695-6ac2-4193-a7da-11ed64970891",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "7ef6322d-9417-49b1-a262-c8a09614d110",
+                "title": "RSA Netwitness SIEM: Get Incident Related Alerts",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "33d8d695-6ac2-4193-a7da-11ed64970891"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Incident Related Alerts",
+              "description": null,
+              "arguments": {
+                "name": "RSA Netwitness SIEM",
+                "config": "a0f0a0fb-2a3f-4f22-a546-4ccaac2fe73e",
+                "params": {
+                  "id": "INC30",
+                  "pageSize": "",
+                  "pageNumber": ""
+                },
+                "version": "1.0.0",
+                "connector": "rsa-netwitness-siem",
+                "operation": "get_incidents_alerts",
+                "operationTitle": "Get Incident Related Alerts",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "4b283e3b-cc15-4a00-9c65-41345552a457"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "e23c93f5-e83c-4ad1-8c9c-ca03e9220e1e",
+              "name": "Alerts -> Get Incident Related Alerts",
+              "label": null,
+              "isExecuted": false,
+              "targetStep": "/api/3/workflow_steps/4b283e3b-cc15-4a00-9c65-41345552a457",
+              "sourceStep": "/api/3/workflow_steps/33d8d695-6ac2-4193-a7da-11ed64970891"
+            }
+          ],
+          "versions": null,
+          "uuid": "6340ecad-9fd5-46f7-94be-b8eae7989ce2",
+          "isPrivate": false,
+          "owners": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Incidents by Date Range",
+          "description": "Get the incidents by the date and time they were created.",
+          "collection": "/api/3/workflow_collections/8f9859c4-8910-4eae-8a9b-0cf575ba3b65",
+          "tag": "#RSA Netwitness SIEM",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/bf3ab7c4-40e4-4b04-a6f1-748735ad7fae",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "651a1762-740d-400c-80d4-9682ab74a054",
+                "title": "RSA Netwitness SIEM: Get Incidents by Date Range",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "bf3ab7c4-40e4-4b04-a6f1-748735ad7fae"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Incidents by Date Range",
+              "description": null,
+              "arguments": {
+                "name": "RSA Netwitness SIEM",
+                "config": "a0f0a0fb-2a3f-4f22-a546-4ccaac2fe73e",
+                "params": {
+                  "since": "2019-06-30T19:30:00.000Z",
+                  "until": "2019-07-15T08:46:25.679Z",
+                  "pageSize": "",
+                  "pageNumber": ""
+                },
+                "version": "1.0.0",
+                "connector": "rsa-netwitness-siem",
+                "operation": "get_incident_by_date_range",
+                "operationTitle": "Get Incidents by Date Range",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "0d1af0f2-4364-481b-96be-a8a35aa009f5"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "e27e3e85-00ff-49dc-9371-4566840ebf2b",
+              "name": "Alerts -> Get Incidents by Date Range",
+              "label": null,
+              "isExecuted": false,
+              "targetStep": "/api/3/workflow_steps/0d1af0f2-4364-481b-96be-a8a35aa009f5",
+              "sourceStep": "/api/3/workflow_steps/bf3ab7c4-40e4-4b04-a6f1-748735ad7fae"
+            }
+          ],
+          "versions": null,
+          "uuid": "161c8368-7097-4a1f-b611-1185a1b38ed9",
+          "isPrivate": false,
+          "owners": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Incident",
+          "description": "A single incident can be retrieved using an incident’s unique identifier.",
+          "collection": "/api/3/workflow_collections/8f9859c4-8910-4eae-8a9b-0cf575ba3b65",
+          "tag": "#RSA Netwitness SIEM",
+          "isActive": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/676b201c-f8e8-4bb8-bbb6-ece1a8438b2f",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts",
+              "description": null,
+              "arguments": {
+                "route": "18c762ba-6d90-4b23-b0a3-5296c525528f",
+                "title": "RSA Netwitness SIEM: Get Incident",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "uuid": "676b201c-f8e8-4bb8-bbb6-ece1a8438b2f"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Incident",
+              "description": null,
+              "arguments": {
+                "name": "RSA Netwitness SIEM",
+                "config": "a0f0a0fb-2a3f-4f22-a546-4ccaac2fe73e",
+                "params": {
+                  "id": "INC30"
+                },
+                "version": "1.0.0",
+                "connector": "rsa-netwitness-siem",
+                "operation": "get_incident",
+                "operationTitle": "Get Incident",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "left": "187",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "uuid": "85ebd009-acd0-4443-9142-75f6baae5435"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "e13c8fcf-0cc6-456e-94bd-4489595547f2",
+              "name": "Alerts -> Get Incident",
+              "label": null,
+              "isExecuted": false,
+              "targetStep": "/api/3/workflow_steps/85ebd009-acd0-4443-9142-75f6baae5435",
+              "sourceStep": "/api/3/workflow_steps/676b201c-f8e8-4bb8-bbb6-ece1a8438b2f"
+            }
+          ],
+          "versions": null,
+          "uuid": "a033adf1-93ad-4e8a-83c2-c1550c9be072",
+          "isPrivate": false,
+          "owners": []
+        }
+      ],
+      "uuid": "8f9859c4-8910-4eae-8a9b-0cf575ba3b65"
+    }
+  ]
+}

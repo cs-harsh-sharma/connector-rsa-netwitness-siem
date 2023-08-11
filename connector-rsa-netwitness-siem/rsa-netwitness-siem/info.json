@@ -1,0 +1,320 @@
+{
+  "name": "rsa-netwitness-siem",
+  "label": "RSA Netwitness SIEM",
+  "description": "The RSA NetWitness Platform is an evolved SIEM and threat detection and response solution that allows security teams to rapidly detect and respond to any threat, anywhere. This connector facilitates the automated operations like Get Incident, Get Incidents by Date Range and Get Incident Related Alerts.",
+  "publisher": "CyberSponse Community",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "version": "1.0.0",
+  "category": "SIEM",
+  "icon_small_name": "rsa_small.png",
+  "icon_large_name": "rsa_large.png",
+  "help_online": "https://help.cybersponse.com/support/solutions/articles/17000092132-rsa-netwitness-siem-v1-0-0",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "name": "server_url",
+        "description": "URL of the RSA Netwitness SIEM server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Username",
+        "name": "username",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "text",
+        "description": "Username of the RSA Netwitness SIEM server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Password",
+        "name": "password",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "type": "password",
+        "description": "Password of the RSA Netwitness SIEM server to which you will connect and perform the automated operations."
+      },
+      {
+        "title": "Verify SSL",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "type": "checkbox",
+        "name": "verify_ssl",
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "get_incident",
+      "title": "Get Incident",
+      "description": "Retrieves a single incident from RSA Netwitness SIEM based on the incident’s unique identifier.",
+      "category": "investigation",
+      "annotation": "get_incident",
+      "output_schema": {
+        "id": "",
+        "title": "",
+        "summary": "",
+        "priority": "",
+        "riskScore": "",
+        "status": "",
+        "alertCount": "",
+        "averageAlertRiskScore": "",
+        "sealed": "",
+        "totalRemediationTaskCount": "",
+        "openRemediationTaskCount": "",
+        "created": "",
+        "lastUpdated": "",
+        "lastUpdatedBy": "",
+        "assignee": "",
+        "sources": [],
+        "ruleId": "",
+        "firstAlertTime": "",
+        "categories": [
+          {
+            "id": "",
+            "parent": "",
+            "name": ""
+          }
+        ],
+        "journalEntries": [
+          {
+            "id": "",
+            "author": "",
+            "notes": "",
+            "created": "",
+            "lastUpdated": "",
+            "milestone": ""
+          }
+        ],
+        "createdBy": "",
+        "deletedAlertCount": "",
+        "eventCount": "",
+        "alertMeta": {
+          "SourceIp": [],
+          "DestinationIp": []
+        }
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "The unique identifier of the incident.",
+          "description": "Unique identifier of the incident based on which you want to retrieve the incident from RSA Netwitness SIEM."
+        }
+      ]
+    },
+    {
+      "operation": "get_incident_by_date_range",
+      "title": "Get Incidents by Date Range",
+      "description": "Retrieves all incidents from RSA Netwitness SIEM based on the date and time they were created in RSA Netwitness SIEM.",
+      "category": "investigation",
+      "annotation": "get_incident_by_date_range",
+      "output_schema": {
+        "items": [
+          {
+            "id": "",
+            "title": "",
+            "summary": "",
+            "priority": "",
+            "riskScore": "",
+            "status": "",
+            "alertCount": "",
+            "averageAlertRiskScore": "",
+            "sealed": "",
+            "totalRemediationTaskCount": "",
+            "openRemediationTaskCount": "",
+            "created": "",
+            "lastUpdated": "",
+            "lastUpdatedBy": "",
+            "assignee": "",
+            "sources": [],
+            "ruleId": "",
+            "firstAlertTime": "",
+            "categories": [
+              {
+                "id": "",
+                "parent": "",
+                "name": ""
+              }
+            ],
+            "journalEntries": [
+              {
+                "id": "",
+                "author": "",
+                "notes": "",
+                "created": "",
+                "lastUpdated": "",
+                "milestone": ""
+              }
+            ],
+            "createdBy": "",
+            "deletedAlertCount": "",
+            "eventCount": "",
+            "alertMeta": {
+              "SourceIp": [],
+              "DestinationIp": []
+            }
+          }
+        ],
+        "pageNumber": "",
+        "pageSize": "",
+        "totalPages": "",
+        "totalItems": "",
+        "hasNext": "",
+        "hasPrevious": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Start Time",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "since",
+          "value": "",
+          "description": "Timestamp based on which incidents will be retrieved from RSA Netwitness SIEM. Incidents that are created on or after this timestamp will be retrieved from RSA Netwitness SIEM."
+        },
+        {
+          "title": "End Time",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "until",
+          "value": "",
+          "description": "Timestamp based on which incidents will be retrieved from RSA Netwitness SIEM. Incidents that are created on or before this timestamp will be retrieved from RSA Netwitness SIEM."
+        },
+        {
+          "title": "Page Number",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "pageNumber",
+          "tooltip": "The requested page number.",
+          "description": "Page number from which you want to request for data."
+        },
+        {
+          "title": "Page Size",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "pageSize",
+          "tooltip": "Maximum number of records that you want to return in a single page.",
+          "description": "Maximum number of records that you want to return in a single page."
+        }
+      ]
+    },
+    {
+      "operation": "get_incidents_alerts",
+      "title": "Get Incident Related Alerts",
+      "description": "Retrieves all alerts that are associated with an incident from RSA Netwitness SIEM based on the incident’s unique identifier.",
+      "category": "investigation",
+      "annotation": "get_incidents_alerts",
+      "output_schema": {
+        "items": [
+          {
+            "id": "",
+            "title": "",
+            "detail": "",
+            "created": "",
+            "source": "",
+            "riskScore": "",
+            "type": "",
+            "events": [
+              {
+                "source": {
+                  "device": {
+                    "ipAddress": "",
+                    "port": "",
+                    "macAddress": "",
+                    "dnsHostname": "",
+                    "dnsDomain": ""
+                  },
+                  "user": {
+                    "username": "",
+                    "emailAddress": "",
+                    "adUsername": "",
+                    "adDomain": ""
+                  }
+                },
+                "destination": {
+                  "device": {
+                    "ipAddress": "",
+                    "port": "",
+                    "macAddress": "",
+                    "dnsHostname": "",
+                    "dnsDomain": ""
+                  },
+                  "user": {
+                    "username": "",
+                    "emailAddress": "",
+                    "adUsername": "",
+                    "adDomain": ""
+                  }
+                },
+                "domain": "",
+                "eventSource": "",
+                "eventSourceId": ""
+              }
+            ]
+          }
+        ],
+        "pageNumber": "",
+        "pageSize": "",
+        "totalPages": "",
+        "totalItems": "",
+        "hasNext": "",
+        "hasPrevious": ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Incident ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "The unique identifier of the incident.",
+          "description": "Unique identifier of the incident whose associated alerts you want to retrieve from RSA Netwitness SIEM."
+        },
+        {
+          "title": "Page Number",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "pageNumber",
+          "tooltip": "The requested page number.",
+          "description": "(Optional) Page number from which you want to request for data."
+        },
+        {
+          "title": "Page Size",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "pageSize",
+          "tooltip": "The maximum number of items to return in a single page.",
+          "description": "(Optional) Maximum number of records that you want to return in a single page."
+        }
+      ]
+    }
+  ]
+}

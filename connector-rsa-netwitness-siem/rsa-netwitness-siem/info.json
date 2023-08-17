@@ -5,11 +5,15 @@
   "publisher": "CyberSponse Community",
   "cs_approved": false,
   "cs_compatible": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "category": "SIEM",
   "icon_small_name": "rsa_small.png",
   "icon_large_name": "rsa_large.png",
-  "help_online": "https://help.cybersponse.com/support/solutions/articles/17000092132-rsa-netwitness-siem-v1-0-0",
+  "ingestion_supported":true,
+  "ingestion_modes":[
+     "scheduled"
+  ],  
+  "help_online": "https://help.cybersponse.com/support/solutions/articles/17000092132-rsa-netwitness-siem-v1-0-1",
   "configuration": {
     "fields": [
       {

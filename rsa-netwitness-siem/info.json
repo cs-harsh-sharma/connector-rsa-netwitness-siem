@@ -2,7 +2,7 @@
   "name": "rsa-netwitness-siem",
   "label": "RSA Netwitness SIEM",
   "description": "The RSA NetWitness Platform is an evolved SIEM and threat detection and response solution that allows security teams to rapidly detect and respond to any threat, anywhere. This connector facilitates the automated operations like Get Incident, Get Incidents by Date Range and Get Incident Related Alerts.",
-  "publisher": "CyberSponse Community",
+  "publisher": "Fortinet",
   "cs_approved": false,
   "cs_compatible": true,
   "version": "1.1.0",

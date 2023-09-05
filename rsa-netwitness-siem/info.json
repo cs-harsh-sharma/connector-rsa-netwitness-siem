@@ -13,7 +13,7 @@
   "ingestion_modes":[
      "scheduled"
   ],  
-  "help_online": "https://github.com/fortinet-fortisoar/connector-rsa-netwitness-siem/blob/release/1.1.0/docs/RSANetwitness.md",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.0/rsa-netwitness-siem/673/rsa-netwitness-siem-v1-1-0",
   "configuration": {
     "fields": [
       {
@@ -115,8 +115,8 @@
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "The unique identifier of the incident.",
-          "description": "Unique identifier of the incident based on which you want to retrieve the incident from RSA Netwitness SIEM."
+          "tooltip": "Specify the unique identifier of the incident based on which you want to retrieve the incident from RSA NetWitness SIEM.",
+          "description": "Specify the unique identifier of the incident based on which you want to retrieve the incident from RSA NetWitness SIEM."
         }
       ]
     },
@@ -190,7 +190,8 @@
           "type": "datetime",
           "name": "since",
           "value": "",
-          "description": "Timestamp based on which incidents will be retrieved from RSA Netwitness SIEM. Incidents that are created on or after this timestamp will be retrieved from RSA Netwitness SIEM."
+          "description": "Specify the timestamp based on which to retrieve incidents from RSA NetWitness SIEM. Incidents that were created on or after this timestamp are retrieved from RSA NetWitness SIEM.",
+          "tooltip": "Specify the timestamp based on which to retrieve incidents from RSA NetWitness SIEM. Incidents that were created on or after this timestamp are retrieved from RSA NetWitness SIEM."
         },
         {
           "title": "End Time",
@@ -200,7 +201,8 @@
           "type": "datetime",
           "name": "until",
           "value": "",
-          "description": "Timestamp based on which incidents will be retrieved from RSA Netwitness SIEM. Incidents that are created on or before this timestamp will be retrieved from RSA Netwitness SIEM."
+          "description": "Specify the timestamp based on which to retrieve incidents from RSA NetWitness SIEM. Incidents that were created on or before this timestamp are retrieved from RSA NetWitness SIEM.",
+          "tooltip":"Specify the timestamp based on which to retrieve incidents from RSA NetWitness SIEM. Incidents that were created on or before this timestamp are retrieved from RSA NetWitness SIEM."
         },
         {
           "title": "Page Number",
@@ -209,8 +211,8 @@
           "visible": true,
           "type": "integer",
           "name": "pageNumber",
-          "tooltip": "The requested page number.",
-          "description": "(Optional) Page number from which you want to request for data."
+          "tooltip": "(Optional) Specify the page number from which to request for data.",
+          "description": "(Optional) Specify the page number from which to request for data."
         },
         {
           "title": "Page Size",
@@ -219,8 +221,8 @@
           "visible": true,
           "type": "integer",
           "name": "pageSize",
-          "tooltip": "Maximum number of records that you want to return in a single page.",
-          "description": "(Optional) Maximum number of records that you want to return in a single page."
+          "tooltip": "(Optional) Specify the maximum number of records that you want to return in a single page.",
+          "description": "(Optional) Specify the maximum number of records that you want to return in a single page."
         }
       ]
     },
@@ -295,8 +297,8 @@
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "The unique identifier of the incident.",
-          "description": "Unique identifier of the incident whose associated alerts you want to retrieve from RSA Netwitness SIEM."
+          "tooltip": "Specify the unique identifier of the incident whose associated alerts you want to retrieve the incident from RSA NetWitness SIEM.",
+          "description": "Specify the unique identifier of the incident whose associated alerts you want to retrieve the incident from RSA NetWitness SIEM."
         },
         {
           "title": "Page Number",
@@ -305,8 +307,8 @@
           "visible": true,
           "type": "integer",
           "name": "pageNumber",
-          "tooltip": "The requested page number.",
-          "description": "(Optional) Page number from which you want to request for data."
+          "tooltip": "(Optional) Specify the page number from which you want to request for data.",
+          "description": "(Optional) Specify the page number from which you want to request for data."
         },
         {
           "title": "Page Size",
@@ -315,8 +317,8 @@
           "visible": true,
           "type": "integer",
           "name": "pageSize",
-          "tooltip": "The maximum number of items to return in a single page.",
-          "description": "(Optional) Maximum number of records that you want to return in a single page."
+          "tooltip": "(Optional) Specify the maximum number of records that you want to return in a single page.",
+          "description": "(Optional) Specify the maximum number of records that you want to return in a single page."
         }
       ]
     }

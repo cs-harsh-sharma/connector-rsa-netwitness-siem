@@ -1,252 +1,543 @@
 ## About the connector
-
 The RSA NetWitness Platform is an evolved SIEM and threat detection and response solution that allows security teams to rapidly detect and respond to any threat, anywhere. This connector facilitates the automated operations like Get Incident, Get Incidents by Date Range and Get Incident Related Alerts.
 <p>This document provides information about the RSA Netwitness SIEM Connector, which facilitates automated interactions, with a RSA Netwitness SIEM server using FortiSOAR&trade; playbooks. Add the RSA Netwitness SIEM Connector as a step in FortiSOAR&trade; playbooks and perform automated operations with RSA Netwitness SIEM.</p>
+
 ### Version information
 
-Connector Version: 1.1.0
+Connector Version: 1.2.0
+
 
 Authored By: Fortinet
 
 Certified: No
+## Release Notes for version 1.2.0
+Following enhancements have been made to the RSA Netwitness SIEM Connector in version 1.2.0:
+<p>Following enhancements have been made to the RSA Netwitness SIEM in version 1.2.0: </p>
+
+<ul>
+<li><p>Added the following actions and playbooks: </p>
+
+<ul>
+<li>Get Alerts</li>
+<li>Get Hosts List</li>
+<li>Get Service IDs</li>
+</ul></li>
+</ul>
 
 ## Installing the connector
-
 <p>Use the <strong>Content Hub</strong> to install the connector. For the detailed procedure to install a connector, click <a href="https://docs.fortinet.com/document/fortisoar/0.0.0/installing-a-connector/1/installing-a-connector" target="_top">here</a>.</p><p>You can also use the <code>yum</code> command as a root user to install the connector:</p>
 <pre>yum install cyops-connector-rsa-netwitness-siem</pre>
 
 ## Prerequisites to configuring the connector
-
-- You must have the URL of RSA Netwitness SIEM server to which you will connect and perform automated operations and credentials to access that server.
+- You must have the credentials of RSA Netwitness SIEM server to which you will connect and perform automated operations.
 - The FortiSOAR&trade; server should have outbound connectivity to port 443 on the RSA Netwitness SIEM server.
 
 ## Minimum Permissions Required
-
-- N/A
+- Not applicable
 
 ## Configuring the connector
-
 For the procedure to configure a connector, click [here](https://docs.fortinet.com/document/fortisoar/0.0.0/configuring-a-connector/1/configuring-a-connector)
-
 ### Configuration parameters
-
-<p>In FortiSOAR&trade;, on the Connectors page, click the <strong>RSA Netwitness SIEM</strong> connector row (if you are in the <strong>Grid</strong> view on the Connectors page) and in the <strong>Configurations&nbsp;</strong> tab enter the required configuration details:&nbsp;</p>
-<table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Server URL<br></td><td>URL of the RSA Netwitness SIEM server to which you will connect and perform the automated operations.<br>
-<tr><td>Username<br></td><td>Username of the RSA Netwitness SIEM server to which you will connect and perform the automated operations.<br>
-<tr><td>Password<br></td><td>Password of the RSA Netwitness SIEM server to which you will connect and perform the automated operations.<br>
-<tr><td>Verify SSL<br></td><td>Specifies whether the SSL certificate for the server is to be verified or not. <br/>By default, this option is set as True.<br></td></tr>
+<p>In FortiSOAR&trade;, on the Connectors page, click the <strong>RSA Netwitness SIEM</strong> connector row (if you are in the <strong>Grid</strong> view on the Connectors page) and in the <strong>Configurations</strong> tab enter the required configuration details:</p>
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Server URL</td><td>URL of the RSA Netwitness SIEM server to which you will connect and perform the automated operations.
+</td>
+</tr><tr><td>Username</td><td>Username of the RSA Netwitness SIEM server to which you will connect and perform the automated operations.
+</td>
+</tr><tr><td>Password</td><td>Password of the RSA Netwitness SIEM server to which you will connect and perform the automated operations.
+</td>
+</tr><tr><td>Verify SSL</td><td>Specifies whether the SSL certificate for the server is to be verified or not. <br/>By default, this option is set to True.</td></tr>
 </tbody></table>
 
 ## Actions supported by the connector
-
 The following automated operations can be included in playbooks and you can also use the annotations to access operations from FortiSOAR&trade; release 4.10.0 and onwards:
-<table border=1><thead><tr><th>Function<br></th><th>Description<br></th><th>Annotation and Category<br></th></tr></thead><tbody><tr><td>Get Incident<br></td><td>Retrieves a single incident from RSA Netwitness SIEM based on the incident’s unique identifier.<br></td><td>get_incident <br/>Investigation<br></td></tr>
-<tr><td>Get Incidents by Date Range<br></td><td>Retrieves all incidents from RSA Netwitness SIEM based on the date and time they were created in RSA Netwitness SIEM.<br></td><td>get_incident_by_date_range <br/>Investigation<br></td></tr>
-<tr><td>Get Incident Related Alerts<br></td><td>Retrieves all alerts that are associated with an incident from RSA Netwitness SIEM based on the incident’s unique identifier.<br></td><td>get_incidents_alerts <br/>Investigation<br></td></tr>
+<table border=1><thead><tr><th>Function</th><th>Description</th><th>Annotation and Category</th></tr></thead><tbody><tr><td>Get Incident</td><td>Retrieves a single incident from RSA Netwitness SIEM based on the incident’s unique identifier.</td><td>get_incident <br/>Investigation</td></tr>
+<tr><td>Get Incidents by Date Range</td><td>Retrieves all incidents from RSA Netwitness SIEM based on the date and time they were created in RSA Netwitness SIEM.</td><td>get_incident_by_date_range <br/>Investigation</td></tr>
+<tr><td>Get Incident Related Alerts</td><td>Retrieves all alerts that are associated with an incident from RSA Netwitness SIEM based on the incident’s unique identifier.</td><td>get_incidents_alerts <br/>Investigation</td></tr>
+<tr><td>Get Alerts</td><td>Retrieves a list of alerts from RSA Netwitness SIEM based on the specified parameters.</td><td>get_alerts <br/>Investigation</td></tr>
+<tr><td>Get Hosts List</td><td>Retrieves a list of all the hosts' information based on the service ID specified. It provides a paged response with a standard paged response structure.</td><td>get_hosts <br/>Investigation</td></tr>
+<tr><td>Get Service IDs</td><td>Retrieves a list of all the services with their service IDs.</td><td>get_service_id <br/>Investigation</td></tr>
 </tbody></table>
 
 ### operation: Get Incident
-
 #### Input parameters
-
-<table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Incident ID<br></td><td>Unique identifier of the incident based on which you want to retrieve the incident from RSA Netwitness SIEM.<br>
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Incident ID</td><td>Specify the unique identifier of the incident based on which you want to retrieve the incident from RSA NetWitness SIEM.
 </td></tr></tbody></table>
 
 #### Output
-
 The output contains the following populated JSON schema:
-<code><br>{
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "id": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "title": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "summary": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "priority": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "riskScore": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "status": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "alertCount": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "averageAlertRiskScore": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "sealed": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "totalRemediationTaskCount": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "openRemediationTaskCount": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "created": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "lastUpdated": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "lastUpdatedBy": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "assignee": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "sources": [],
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "ruleId": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "firstAlertTime": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "categories": [
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "parent": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "name": ""
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        }
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    ],
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "journalEntries": [
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "author": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "notes": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "created": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "lastUpdated": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "milestone": ""
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        }
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    ],
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "createdBy": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "deletedAlertCount": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "eventCount": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "alertMeta": {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        "SourceIp": [],
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        "DestinationIp": []
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    }
-</code><code><br>}</code>
 
+<pre>{
+    "id": "",
+    "title": "",
+    "summary": "",
+    "priority": "",
+    "riskScore": "",
+    "status": "",
+    "alertCount": "",
+    "averageAlertRiskScore": "",
+    "sealed": "",
+    "totalRemediationTaskCount": "",
+    "openRemediationTaskCount": "",
+    "created": "",
+    "lastUpdated": "",
+    "lastUpdatedBy": "",
+    "assignee": "",
+    "sources": [],
+    "ruleId": "",
+    "firstAlertTime": "",
+    "categories": [
+        {
+            "id": "",
+            "parent": "",
+            "name": ""
+        }
+    ],
+    "journalEntries": [
+        {
+            "id": "",
+            "author": "",
+            "notes": "",
+            "created": "",
+            "lastUpdated": "",
+            "milestone": ""
+        }
+    ],
+    "createdBy": "",
+    "deletedAlertCount": "",
+    "eventCount": "",
+    "alertMeta": {
+        "SourceIp": [],
+        "DestinationIp": []
+    }
+}</pre>
 ### operation: Get Incidents by Date Range
-
 #### Input parameters
-
-<table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Start Time<br></td><td>Timestamp based on which incidents will be retrieved from RSA Netwitness SIEM. Incidents that are created on or after this timestamp will be retrieved from RSA Netwitness SIEM.<br>
-</td></tr><tr><td>End Time<br></td><td>Timestamp based on which incidents will be retrieved from RSA Netwitness SIEM. Incidents that are created on or before this timestamp will be retrieved from RSA Netwitness SIEM.<br>
-</td></tr><tr><td>Page Number<br></td><td>(Optional) Page number from which you want to request for data.<br>
-</td></tr><tr><td>Page Size<br></td><td>(Optional) Maximum number of records that you want to return in a single page.<br>
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Start Time</td><td>Specify the timestamp based on which to retrieve incidents from RSA NetWitness SIEM. Incidents that were created on or after this timestamp are retrieved from RSA NetWitness SIEM.
+</td></tr><tr><td>End Time</td><td>Specify the timestamp based on which to retrieve incidents from RSA NetWitness SIEM. Incidents that were created on or before this timestamp are retrieved from RSA NetWitness SIEM.
+</td></tr><tr><td>Page Number</td><td>(Optional) Specify the page number from which to request for data.
+</td></tr><tr><td>Page Size</td><td>(Optional) Specify the maximum number of records that you want to return in a single page.
 </td></tr></tbody></table>
 
 #### Output
-
 The output contains the following populated JSON schema:
-<code><br>{
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "items": [
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "title": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "summary": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "priority": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "riskScore": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "status": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "alertCount": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "averageAlertRiskScore": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "sealed": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "totalRemediationTaskCount": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "openRemediationTaskCount": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "created": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "lastUpdated": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "lastUpdatedBy": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "assignee": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "sources": [],
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "ruleId": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "firstAlertTime": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "categories": [
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "id": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "parent": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "name": ""
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                }
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            ],
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "journalEntries": [
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "id": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "author": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "notes": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "created": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "lastUpdated": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "milestone": ""
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                }
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            ],
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "createdBy": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "deletedAlertCount": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "eventCount": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "alertMeta": {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                "SourceIp": [],
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                "DestinationIp": []
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            }
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        }
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    ],
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "pageNumber": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "pageSize": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "totalPages": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "totalItems": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "hasNext": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "hasPrevious": ""
-</code><code><br>}</code>
 
+<pre>{
+    "items": [
+        {
+            "id": "",
+            "title": "",
+            "summary": "",
+            "priority": "",
+            "riskScore": "",
+            "status": "",
+            "alertCount": "",
+            "averageAlertRiskScore": "",
+            "sealed": "",
+            "totalRemediationTaskCount": "",
+            "openRemediationTaskCount": "",
+            "created": "",
+            "lastUpdated": "",
+            "lastUpdatedBy": "",
+            "assignee": "",
+            "sources": [],
+            "ruleId": "",
+            "firstAlertTime": "",
+            "categories": [
+                {
+                    "id": "",
+                    "parent": "",
+                    "name": ""
+                }
+            ],
+            "journalEntries": [
+                {
+                    "id": "",
+                    "author": "",
+                    "notes": "",
+                    "created": "",
+                    "lastUpdated": "",
+                    "milestone": ""
+                }
+            ],
+            "createdBy": "",
+            "deletedAlertCount": "",
+            "eventCount": "",
+            "alertMeta": {
+                "SourceIp": [],
+                "DestinationIp": []
+            }
+        }
+    ],
+    "pageNumber": "",
+    "pageSize": "",
+    "totalPages": "",
+    "totalItems": "",
+    "hasNext": "",
+    "hasPrevious": ""
+}</pre>
 ### operation: Get Incident Related Alerts
-
 #### Input parameters
-
-<table border=1><thead><tr><th>Parameter<br></th><th>Description<br></th></tr></thead><tbody><tr><td>Incident ID<br></td><td>Unique identifier of the incident whose associated alerts you want to retrieve from RSA Netwitness SIEM.<br>
-</td></tr><tr><td>Page Number<br></td><td>(Optional) Page number from which you want to request for data.<br>
-</td></tr><tr><td>Page Size<br></td><td>(Optional) Maximum number of records that you want to return in a single page.<br>
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Incident ID</td><td>Specify the unique identifier of the incident whose associated alerts you want to retrieve the incident from RSA NetWitness SIEM.
+</td></tr><tr><td>Page Number</td><td>(Optional) Specify the page number from which you want to request for data.
+</td></tr><tr><td>Page Size</td><td>(Optional) Specify the maximum number of records that you want to return in a single page.
 </td></tr></tbody></table>
 
 #### Output
-
 The output contains the following populated JSON schema:
-<code><br>{
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "items": [
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "id": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "title": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "detail": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "created": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "source": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "riskScore": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "type": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            "events": [
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "source": {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        "device": {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "ipAddress": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "port": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "macAddress": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "dnsHostname": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "dnsDomain": ""
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        },
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        "user": {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "username": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "emailAddress": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "adUsername": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "adDomain": ""
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        }
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    },
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "destination": {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        "device": {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "ipAddress": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "port": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "macAddress": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "dnsHostname": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "dnsDomain": ""
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        },
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        "user": {
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "username": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "emailAddress": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "adUsername": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                            "adDomain": ""
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                        }
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    },
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "domain": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "eventSource": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                    "eventSourceId": ""
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                }
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            ]
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        }
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    ],
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "pageNumber": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "pageSize": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "totalPages": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "totalItems": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "hasNext": "",
-</code><code><br>&nbsp;&nbsp;&nbsp;&nbsp;    "hasPrevious": ""
-</code><code><br>}</code>
 
+<pre>{
+    "items": [
+        {
+            "id": "",
+            "title": "",
+            "detail": "",
+            "created": "",
+            "source": "",
+            "riskScore": "",
+            "type": "",
+            "events": [
+                {
+                    "source": {
+                        "device": {
+                            "ipAddress": "",
+                            "port": "",
+                            "macAddress": "",
+                            "dnsHostname": "",
+                            "dnsDomain": ""
+                        },
+                        "user": {
+                            "username": "",
+                            "emailAddress": "",
+                            "adUsername": "",
+                            "adDomain": ""
+                        }
+                    },
+                    "destination": {
+                        "device": {
+                            "ipAddress": "",
+                            "port": "",
+                            "macAddress": "",
+                            "dnsHostname": "",
+                            "dnsDomain": ""
+                        },
+                        "user": {
+                            "username": "",
+                            "emailAddress": "",
+                            "adUsername": "",
+                            "adDomain": ""
+                        }
+                    },
+                    "domain": "",
+                    "eventSource": "",
+                    "eventSourceId": ""
+                }
+            ]
+        }
+    ],
+    "pageNumber": "",
+    "pageSize": "",
+    "totalPages": "",
+    "totalItems": "",
+    "hasNext": "",
+    "hasPrevious": ""
+}</pre>
+### operation: Get Alerts
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Field Name</td><td>Specify the field of the alert document based on which the incident query to be made.
+</td></tr><tr><td>Field Value</td><td>Specify the value for the field of the alert document based on which the incident query to be made.
+</td></tr><tr><td>Limit</td><td>(Optional) Specify the maximum number of records that you want to return in response. By default, this is set to 10.
+</td></tr></tbody></table>
+
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>[
+    {
+        "id": "",
+        "receivedTime": "",
+        "status": "",
+        "errorMessage": "",
+        "originalHeaders": {
+            "name": "",
+            "description": "",
+            "version": "",
+            "severity": "",
+            "timestamp": "",
+            "signatureId": "",
+            "deviceVendor": "",
+            "deviceProduct": "",
+            "deviceVersion": ""
+        },
+        "originalRawAlert": "",
+        "originalAlert": {
+            "instance_id": "",
+            "engineUri": "",
+            "detail": "",
+            "events": [
+                {
+                    "ip_proto": "",
+                    "ip_src": "",
+                    "lifetime": "",
+                    "medium": "",
+                    "sessionid": "",
+                    "rid": "",
+                    "packets": "",
+                    "eth_src": "",
+                    "password": "",
+                    "analysis_service": [],
+                    "latdec_dst": "",
+                    "payload": "",
+                    "tcp_flags": "",
+                    "longdec_src": "",
+                    "action": [],
+                    "city_src": "",
+                    "country_dst": "",
+                    "org_dst": "",
+                    "requestpayload": "",
+                    "responsepayload": "",
+                    "sourcefile": "",
+                    "event_source_id": "",
+                    "esa_time": "",
+                    "tcp_dstport": "",
+                    "tcp_srcport": "",
+                    "streams": "",
+                    "domain_dst": "",
+                    "sld": "",
+                    "tld": "",
+                    "ip_dst": "",
+                    "longdec_dst": "",
+                    "eth_dst": "",
+                    "eth_type": "",
+                    "latdec_src": "",
+                    "size": "",
+                    "netname": [],
+                    "service": "",
+                    "country_src": "",
+                    "tcpflags": "",
+                    "city_dst": "",
+                    "time": "",
+                    "org_src": "",
+                    "analysis_session": [],
+                    "did": "",
+                    "username": []
+                }
+            ]
+        },
+        "incidentId": "",
+        "partOfIncident": "",
+        "incidentCreated": "",
+        "pinnedEventIds": "",
+        "persisted": "",
+        "name": "",
+        "alert": {
+            "destination_country": [],
+            "groupby_type": "",
+            "user_summary": [],
+            "groupby_domain": "",
+            "source": "",
+            "type": [],
+            "groupby_user_src": "",
+            "groupby_source_country": "",
+            "groupby_destination_country": "",
+            "groupby_analysis_session": "",
+            "groupby_analysis_file": "",
+            "signature_id": "",
+            "groupby_filename": "",
+            "groupby_data_hash": "",
+            "groupby_domain_dst": "",
+            "groupby_destination_ip": "",
+            "groupby_host_dst": "",
+            "groupby_source_ip": "",
+            "groupby_source_username": "",
+            "groupby_detector_ip": "",
+            "events": [
+                {
+                    "data": [
+                        {
+                            "filename": "",
+                            "size": "",
+                            "hash": ""
+                        }
+                    ],
+                    "destination": {
+                        "device": {
+                            "compliance_rating": "",
+                            "netbios_name": "",
+                            "port": "",
+                            "mac_address": "",
+                            "criticality": "",
+                            "asset_type": "",
+                            "ip_address": "",
+                            "facility": "",
+                            "business_unit": "",
+                            "geolocation": {
+                                "country": "",
+                                "city": "",
+                                "latitude": "",
+                                "organization": "",
+                                "domain": "",
+                                "longitude": ""
+                            }
+                        },
+                        "user": {
+                            "email_address": "",
+                            "ad_username": "",
+                            "ad_domain": "",
+                            "username": ""
+                        }
+                    },
+                    "domain_src": "",
+                    "description": "",
+                    "source": {
+                        "device": {
+                            "compliance_rating": "",
+                            "netbios_name": "",
+                            "port": "",
+                            "mac_address": "",
+                            "criticality": "",
+                            "asset_type": "",
+                            "ip_address": "",
+                            "facility": "",
+                            "business_unit": "",
+                            "geolocation": {
+                                "country": "",
+                                "city": "",
+                                "latitude": "",
+                                "organization": "",
+                                "domain": "",
+                                "longitude": ""
+                            }
+                        },
+                        "user": {
+                            "email_address": "",
+                            "ad_username": "",
+                            "ad_domain": "",
+                            "username": ""
+                        }
+                    },
+                    "analysis_file": "",
+                    "type": "",
+                    "host_scr": "",
+                    "enrichment": "",
+                    "user_src": "",
+                    "analysis_service": "",
+                    "file": "",
+                    "detected_by": "",
+                    "from": "",
+                    "timestamp": "",
+                    "custom_meta_key": "",
+                    "related_links": [
+                        {
+                            "type": "",
+                            "url": ""
+                        }
+                    ],
+                    "domain_dst": "",
+                    "user_dst": "",
+                    "host_dst": "",
+                    "size": "",
+                    "domain": "",
+                    "to": "",
+                    "detector": {
+                        "device_class": "",
+                        "ip_address": "",
+                        "product_name": ""
+                    },
+                    "user": "",
+                    "analysis_session": "",
+                    "username": ""
+                }
+            ],
+            "timestamp": "",
+            "severity": "",
+            "groupby_custom_meta_key": "",
+            "related_links": [],
+            "host_summary": "",
+            "groupby_username": "",
+            "risk_score": "",
+            "groupby_destination_port": "",
+            "groupby_c2domain": "",
+            "groupby_user_dst": "",
+            "source_country": [],
+            "name": "",
+            "numEvents": "",
+            "groupby_host_src": "",
+            "groupby_analysis_service": ""
+        },
+        "timestamp": ""
+    }
+]</pre>
+### operation: Get Hosts List
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Service ID</td><td>Specify the service ID to connect to the specific Endpoint Server.
+</td></tr><tr><td>Filter Criteria</td><td>(Optional) Specify the JSON containing filter and sort criteria. The following fields are supported for filtering and sorting 'agentId', 'hostName', 'riskScore' and 'networkInterfaces.ipv4'.
+</td></tr><tr><td>Page Number</td><td>(Optional) Specify the page number from which to request for data.
+</td></tr><tr><td>Page Size</td><td>(Optional) Specify the maximum number of records that you want to return in a single page.
+</td></tr></tbody></table>
+
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>{
+    "items": [
+        {
+            "agentId": "",
+            "hostName": "",
+            "riskScore": "",
+            "networkInterfaces": [
+                {
+                    "name": "",
+                    "macAddress": "",
+                    "ipv4": [],
+                    "ipv6": [],
+                    "networkIdv6": [],
+                    "gateway": [],
+                    "dns": [],
+                    "promiscuous": ""
+                }
+            ],
+            "lastSeenTime": ""
+        }
+    ],
+    "pageNumber": "",
+    "pageSize": "",
+    "totalPages": "",
+    "totalItems": "",
+    "hasNext": "",
+    "hasPrevious": ""
+}</pre>
+### operation: Get Service IDs
+#### Input parameters
+None.
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>[
+    {
+        "id": "",
+        "name": "",
+        "displayName": "",
+        "host": "",
+        "version": ""
+    }
+]</pre>
 ## Included playbooks
-The `Sample - rsa-netwitness-siem - 1.1.0` playbook collection comes bundled with the RSA Netwitness SIEM connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the **Automation** > **Playbooks** section in FortiSOAR<sup>TM</sup> after importing the RSA Netwitness SIEM connector.
+The `Sample - rsa-netwitness-siem - 1.2.0` playbook collection comes bundled with the RSA Netwitness SIEM connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the **Automation** > **Playbooks** section in FortiSOAR&trade; after importing the RSA Netwitness SIEM connector.
 
-- > RSA Netwitness SIEM > Fetch
-- >> RSA Netwitness SIEM> Fetch Associated events for Incident
+- \> RSA Netwitness SIEM > Fetch
+- \>> RSA Netwitness SIEM> Fetch Associated events for Incident
+- Get Alerts
+- Get Hosts List
 - Get Incident Related Alerts
 - Get Incidents by Date Range
+- Get Service IDs
 - RSA Netwitness SIEM > Ingest
 
-**Note**: If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.
+**Note**: If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection since the sample playbook collection gets deleted during connector upgrade and delete.
+## Data Ingestion Support
+Use the Data Ingestion Wizard to easily ingest data into FortiSOAR&trade; by pulling events/alerts/incidents, based on the requirement.
+
+**TODO:** provide the list of steps to configure the ingestion with the screen shots and limitations if any in this section.
 
 ## Data Ingestion Support
 

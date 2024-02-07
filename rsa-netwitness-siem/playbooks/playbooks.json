@@ -2,13 +2,16 @@
   "type": "workflow_collections",
   "data": [
     {
+      "@context": "/api/3/contexts/WorkflowCollection",
       "@type": "WorkflowCollection",
-      "name": "Sample - RSA Netwitness SIEM - 1.1.0",
+      "name": "Sample - RSA Netwitness SIEM - 1.2.0",
       "description": "Sample playbooks for \"RSA Netwitness SIEM\" connector. If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection, since the sample playbook collection gets deleted during connector upgrade and delete.",
-      "visible": true,      
-      "uuid": "8f9859c4-8910-4eae-8a9b-0cf575ba3b00",
-      "id": 42,
-      "deletedAt": null,    
+      "visible": true,
+      "image": "/api/3/images/80fd1ca7-e823-4c5f-9031-dd79db4c5854",
+      "id": 581,
+      "createDate": 1707205005.856489,
+      "modifyDate": 1707205005.856489,
+      "deletedAt": null,
       "importedBy": [],
       "recordTags": [],
       "workflows": [
@@ -26,10 +29,38 @@
           "parameters": [],
           "synchronous": false,
           "lastModifyDate": null,
-          "collection": "/api/3/workflow_collections/8f9859c4-8910-4eae-8a9b-0cf575ba3b65",
+          "collection": "/api/3/workflow_collections/efd883f8-0c90-4f9e-abef-3cd1718bae10",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/bf3ab7c4-40e4-4b04-a6f1-748735ad7fae",
           "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Incidents by Date Range",
+              "description": null,
+              "arguments": {
+                "name": "RSA Netwitness SIEM",
+                "config": "a0f0a0fb-2a3f-4f22-a546-4ccaac2fe73e",
+                "params": {
+                  "since": "2019-06-30T19:30:00.000Z",
+                  "until": "2019-07-15T08:46:25.679Z",
+                  "pageSize": "",
+                  "pageNumber": ""
+                },
+                "version": "1.2.0",
+                "connector": "rsa-netwitness-siem",
+                "operation": "get_incident_by_date_range",
+                "operationTitle": "Get Incidents by Date Range",
+                "step_variables": {
+                  "output_data": "{{vars.result}}"
+                }
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "0d1af0f2-4364-481b-96be-a8a35aa009f5"
+            },
             {
               "@type": "WorkflowStep",
               "name": "Alerts",
@@ -55,34 +86,6 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
               "group": null,
               "uuid": "bf3ab7c4-40e4-4b04-a6f1-748735ad7fae"
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Get Incidents by Date Range",
-              "description": null,
-              "arguments": {
-                "name": "RSA Netwitness SIEM",
-                "config": "a0f0a0fb-2a3f-4f22-a546-4ccaac2fe73e",
-                "params": {
-                  "since": "2019-06-30T19:30:00.000Z",
-                  "until": "2019-07-15T08:46:25.679Z",
-                  "pageSize": "",
-                  "pageNumber": ""
-                },
-                "version": "1.1.0",
-                "connector": "rsa-netwitness-siem",
-                "operation": "get_incident_by_date_range",
-                "operationTitle": "Get Incidents by Date Range",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
-              },
-              "status": null,
-              "top": "120",
-              "left": "188",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "0d1af0f2-4364-481b-96be-a8a35aa009f5"
             }
           ],
           "routes": [
@@ -93,14 +96,13 @@
               "sourceStep": "/api/3/workflow_steps/bf3ab7c4-40e4-4b04-a6f1-748735ad7fae",
               "label": null,
               "isExecuted": false,
-              "group": null,
               "uuid": "e27e3e85-00ff-49dc-9371-4566840ebf2b"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "161c8368-7097-4a1f-b611-1185a1b38ed9",
-          "id": 468,
+          "id": 7798,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -112,7 +114,7 @@
           "triggerLimit": null,
           "name": ">> RSA Netwitness SIEM> Fetch Associated events for Incident",
           "aliasName": null,
-          "tag": "#fortinet-fortisiem #dataingestion",
+          "tag": "#RSA Netwitness SIEM #dataingestion",
           "description": "Fetch Associated events for Incident.",
           "isActive": true,
           "debug": true,
@@ -124,37 +126,10 @@
           ],
           "synchronous": false,
           "lastModifyDate": 1691669704,
-          "collection": "/api/3/workflow_collections/8f9859c4-8910-4eae-8a9b-0cf575ba3b65",
+          "collection": "/api/3/workflow_collections/efd883f8-0c90-4f9e-abef-3cd1718bae10",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/4fba5252-522d-4ed7-b87d-1119de8236a1",
           "steps": [
-            {
-              "@type": "WorkflowStep",
-              "name": "Get Assisiated Events",
-              "description": null,
-              "arguments": {
-                "name": "RSA Netwitness SIEM",
-                "config": "8fc76d97-8305-456a-baa6-7d80699f1e5f",
-                "params": {
-                  "id": "{{vars.incident.sourceId}}",
-                  "pageSize": "{{vars.max_events}}",
-                  "pageNumber": ""
-                },
-                "version": "1.1.0",
-                "connector": "rsa-netwitness-siem",
-                "operation": "get_incidents_alerts",
-                "mock_result": "{\n  \"data\": {\n    \"items\": [\n      {\n        \"id\": \"64c95a16bef7fb6f08fdff45\",\n        \"type\": \"Log\",\n        \"title\": \"RSA Test - Fortinet Failover - virtual cluster's member state moved\",\n        \"detail\": null,\n        \"events\": [\n          {\n            \"domain\": null,\n            \"source\": {\n              \"user\": {\n                \"adDomain\": null,\n                \"username\": null,\n                \"adUsername\": null,\n                \"emailAddress\": null\n              },\n              \"device\": {\n                \"port\": null,\n                \"dnsDomain\": null,\n                \"ipAddress\": null,\n                \"macAddress\": null,\n                \"dnsHostname\": null\n              }\n            },\n            \"destination\": {\n              \"user\": {\n                \"adDomain\": null,\n                \"username\": null,\n                \"adUsername\": null,\n                \"emailAddress\": null\n              },\n              \"device\": {\n                \"port\": null,\n                \"dnsDomain\": null,\n                \"ipAddress\": null,\n                \"macAddress\": null,\n                \"dnsHostname\": null\n              }\n            },\n            \"eventSource\": \"10.111.100.54:50005\",\n            \"eventSourceId\": \"1830839092206\"\n          }\n        ],\n        \"source\": \"Event Stream Analysis\",\n        \"created\": \"2023-08-01T19:16:38.436Z\",\n        \"riskScore\": null\n      },\n      {\n        \"id\": \"64c95e7bbef7fb6f08fdff46\",\n        \"type\": \"Log\",\n        \"title\": \"RSA Test - Fortinet Failover - virtual cluster's member state moved\",\n        \"detail\": null,\n        \"events\": [\n          {\n            \"domain\": null,\n            \"source\": {\n              \"user\": {\n                \"adDomain\": null,\n                \"username\": null,\n                \"adUsername\": null,\n                \"emailAddress\": null\n              },\n              \"device\": {\n                \"port\": null,\n                \"dnsDomain\": null,\n                \"ipAddress\": null,\n                \"macAddress\": null,\n                \"dnsHostname\": null\n              }\n            },\n            \"destination\": {\n              \"user\": {\n                \"adDomain\": null,\n                \"username\": null,\n                \"adUsername\": null,\n                \"emailAddress\": null\n              },\n              \"device\": {\n                \"port\": null,\n                \"dnsDomain\": null,\n                \"ipAddress\": null,\n                \"macAddress\": null,\n                \"dnsHostname\": null\n              }\n            },\n            \"eventSource\": \"10.111.100.54:50005\",\n            \"eventSourceId\": \"1830866045462\"\n          }\n        ],\n        \"source\": \"Event Stream Analysis\",\n        \"created\": \"2023-08-01T19:35:23.067Z\",\n        \"riskScore\": null\n      }\n    ],\n    \"hasNext\": false,\n    \"pageSize\": 100,\n    \"pageNumber\": 0,\n    \"totalItems\": 2,\n    \"totalPages\": 1,\n    \"hasPrevious\": false\n  },\n  \"status\": \"Success\",\n  \"message\": \"\",\n  \"operation\": null,\n  \"execution_time\": \"750 ms\"\n}",
-                "operationTitle": "Get Incident Related Alerts",
-                "pickFromTenant": false,
-                "step_variables": []
-              },
-              "status": null,
-              "top": "120",
-              "left": "200",
-              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
-              "group": null,
-              "uuid": "d3c0bb42-bc06-4dfd-9322-aad6e26196da"
-            },
             {
               "@type": "WorkflowStep",
               "name": "Set Result",
@@ -212,19 +187,36 @@
               "stepType": "/api/3/workflow_step_types/b593663d-7d13-40ce-a3a3-96dece928722",
               "group": null,
               "uuid": "d0996f50-a7f2-45a2-82cd-8c13ec498247"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Assisiated Events",
+              "description": null,
+              "arguments": {
+                "name": "RSA Netwitness SIEM",
+                "config": "8fc76d97-8305-456a-baa6-7d80699f1e5f",
+                "params": {
+                  "id": "{{vars.incident.sourceId}}",
+                  "pageSize": "{{vars.max_events}}",
+                  "pageNumber": ""
+                },
+                "version": "1.2.0",
+                "connector": "rsa-netwitness-siem",
+                "operation": "get_incidents_alerts",
+                "mock_result": "{\n  \"data\": {\n    \"items\": [\n      {\n        \"id\": \"64c95a16bef7fb6f08fdff45\",\n        \"type\": \"Log\",\n        \"title\": \"RSA Test - Fortinet Failover - virtual cluster's member state moved\",\n        \"detail\": null,\n        \"events\": [\n          {\n            \"domain\": null,\n            \"source\": {\n              \"user\": {\n                \"adDomain\": null,\n                \"username\": null,\n                \"adUsername\": null,\n                \"emailAddress\": null\n              },\n              \"device\": {\n                \"port\": null,\n                \"dnsDomain\": null,\n                \"ipAddress\": null,\n                \"macAddress\": null,\n                \"dnsHostname\": null\n              }\n            },\n            \"destination\": {\n              \"user\": {\n                \"adDomain\": null,\n                \"username\": null,\n                \"adUsername\": null,\n                \"emailAddress\": null\n              },\n              \"device\": {\n                \"port\": null,\n                \"dnsDomain\": null,\n                \"ipAddress\": null,\n                \"macAddress\": null,\n                \"dnsHostname\": null\n              }\n            },\n            \"eventSource\": \"10.111.100.54:50005\",\n            \"eventSourceId\": \"1830839092206\"\n          }\n        ],\n        \"source\": \"Event Stream Analysis\",\n        \"created\": \"2023-08-01T19:16:38.436Z\",\n        \"riskScore\": null\n      },\n      {\n        \"id\": \"64c95e7bbef7fb6f08fdff46\",\n        \"type\": \"Log\",\n        \"title\": \"RSA Test - Fortinet Failover - virtual cluster's member state moved\",\n        \"detail\": null,\n        \"events\": [\n          {\n            \"domain\": null,\n            \"source\": {\n              \"user\": {\n                \"adDomain\": null,\n                \"username\": null,\n                \"adUsername\": null,\n                \"emailAddress\": null\n              },\n              \"device\": {\n                \"port\": null,\n                \"dnsDomain\": null,\n                \"ipAddress\": null,\n                \"macAddress\": null,\n                \"dnsHostname\": null\n              }\n            },\n            \"destination\": {\n              \"user\": {\n                \"adDomain\": null,\n                \"username\": null,\n                \"adUsername\": null,\n                \"emailAddress\": null\n              },\n              \"device\": {\n                \"port\": null,\n                \"dnsDomain\": null,\n                \"ipAddress\": null,\n                \"macAddress\": null,\n                \"dnsHostname\": null\n              }\n            },\n            \"eventSource\": \"10.111.100.54:50005\",\n            \"eventSourceId\": \"1830866045462\"\n          }\n        ],\n        \"source\": \"Event Stream Analysis\",\n        \"created\": \"2023-08-01T19:35:23.067Z\",\n        \"riskScore\": null\n      }\n    ],\n    \"hasNext\": false,\n    \"pageSize\": 100,\n    \"pageNumber\": 0,\n    \"totalItems\": 2,\n    \"totalPages\": 1,\n    \"hasPrevious\": false\n  },\n  \"status\": \"Success\",\n  \"message\": \"\",\n  \"operation\": null,\n  \"execution_time\": \"750 ms\"\n}",
+                "operationTitle": "Get Incident Related Alerts",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "120",
+              "left": "200",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "d3c0bb42-bc06-4dfd-9322-aad6e26196da"
             }
           ],
           "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "name": "Get Assisiated Events -> Set Result",
-              "targetStep": "/api/3/workflow_steps/2164fe1c-1d67-4b48-9aea-49597a0cf02c",
-              "sourceStep": "/api/3/workflow_steps/d3c0bb42-bc06-4dfd-9322-aad6e26196da",
-              "label": null,
-              "isExecuted": false,
-              "group": null,
-              "uuid": "bf18db0b-d953-48a0-94fb-78017c7fff1f"
-            },
             {
               "@type": "WorkflowRoute",
               "name": "Set Result -> Update Alert",
@@ -232,7 +224,6 @@
               "sourceStep": "/api/3/workflow_steps/2164fe1c-1d67-4b48-9aea-49597a0cf02c",
               "label": null,
               "isExecuted": false,
-              "group": null,
               "uuid": "241d178c-e0fa-44e3-b8d1-84d3a3065c61"
             },
             {
@@ -242,14 +233,22 @@
               "sourceStep": "/api/3/workflow_steps/4fba5252-522d-4ed7-b87d-1119de8236a1",
               "label": null,
               "isExecuted": false,
-              "group": null,
               "uuid": "9791e37e-5fbe-4f30-a16b-0f9e4b1e0f88"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Assisiated Events -> Set Result",
+              "targetStep": "/api/3/workflow_steps/2164fe1c-1d67-4b48-9aea-49597a0cf02c",
+              "sourceStep": "/api/3/workflow_steps/d3c0bb42-bc06-4dfd-9322-aad6e26196da",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "bf18db0b-d953-48a0-94fb-78017c7fff1f"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "4a058d4e-759f-4a62-8b65-c6ca9204b0e1",
-          "id": 713,
+          "id": 7800,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -257,6 +256,96 @@
           "recordTags": [
             "dataingestion",
             "rsa-netwitness-siem"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Alerts",
+          "aliasName": null,
+          "tag": "#RSA Netwitness SIEM",
+          "description": "Retrieves a list of alerts from RSA Netwitness SIEM based on the specified parameters.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/efd883f8-0c90-4f9e-abef-3cd1718bae10",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/bcb4b073-3090-4c81-bb57-fa73dbcd730a",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Alerts",
+              "description": null,
+              "arguments": {
+                "name": "RSA Netwitness SIEM",
+                "config": "''",
+                "params": [],
+                "version": "1.2.0",
+                "connector": "rsa-netwitness-siem",
+                "operation": "get_alerts",
+                "operationTitle": "Get Alerts"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "368ff792-7426-4595-9056-15d61c5a9eb5"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "8a5f2111-8d3f-4117-8cd8-1250b3398e3f",
+                "title": "RSA Netwitness SIEM: Get Alerts",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "bcb4b073-3090-4c81-bb57-fa73dbcd730a"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Alerts",
+              "targetStep": "/api/3/workflow_steps/368ff792-7426-4595-9056-15d61c5a9eb5",
+              "sourceStep": "/api/3/workflow_steps/bcb4b073-3090-4c81-bb57-fa73dbcd730a",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "faa5760c-8e8a-48ff-8284-8e2b2961e806"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "58a244a3-246d-4e64-b50f-e4b000b99d49",
+          "id": 7799,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "rsa-netwitness-siem",
+            "Rsa"
           ]
         },
         {
@@ -273,7 +362,7 @@
           "parameters": [],
           "synchronous": false,
           "lastModifyDate": null,
-          "collection": "/api/3/workflow_collections/8f9859c4-8910-4eae-8a9b-0cf575ba3b65",
+          "collection": "/api/3/workflow_collections/efd883f8-0c90-4f9e-abef-3cd1718bae10",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/33d8d695-6ac2-4193-a7da-11ed64970891",
           "steps": [
@@ -315,7 +404,7 @@
                   "pageSize": "",
                   "pageNumber": ""
                 },
-                "version": "1.1.0",
+                "version": "1.2.0",
                 "connector": "rsa-netwitness-siem",
                 "operation": "get_incidents_alerts",
                 "operationTitle": "Get Incident Related Alerts",
@@ -339,14 +428,13 @@
               "sourceStep": "/api/3/workflow_steps/33d8d695-6ac2-4193-a7da-11ed64970891",
               "label": null,
               "isExecuted": false,
-              "group": null,
               "uuid": "e23c93f5-e83c-4ad1-8c9c-ca03e9220e1e"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "6340ecad-9fd5-46f7-94be-b8eae7989ce2",
-          "id": 467,
+          "id": 7801,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -358,7 +446,7 @@
           "triggerLimit": null,
           "name": "RSA Netwitness SIEM > Ingest",
           "aliasName": null,
-          "tag": "#fortinet-fortisiem #ingest #dataingestion #create",
+          "tag": "#RSA Netwitness SIEM #ingest #dataingestion #create",
           "description": "This playbook demonstrate the list incident operation.",
           "isActive": true,
           "debug": true,
@@ -367,53 +455,10 @@
           "parameters": [],
           "synchronous": false,
           "lastModifyDate": 1691669194,
-          "collection": "/api/3/workflow_collections/8f9859c4-8910-4eae-8a9b-0cf575ba3b65",
+          "collection": "/api/3/workflow_collections/efd883f8-0c90-4f9e-abef-3cd1718bae10",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/2f4da677-9c38-4444-b562-784953db7ea7",
           "steps": [
-            {
-              "@type": "WorkflowStep",
-              "name": "Alerts Found",
-              "description": null,
-              "arguments": {
-                "conditions": [
-                  {
-                    "option": "yes",
-                    "step_iri": "/api/3/workflow_steps/0f1d72d9-0adc-4eb7-8f8d-f9a9b1c25b46",
-                    "condition": "{{ vars.incident_source_data is not none and vars.incident_source_data | length > 0 }}",
-                    "step_name": "Create Record"
-                  },
-                  {
-                    "option": "no",
-                    "default": true,
-                    "step_iri": "/api/3/workflow_steps/376b6803-a24c-48a2-92a7-3248a41d7e38",
-                    "step_name": "Stop"
-                  }
-                ]
-              },
-              "status": null,
-              "top": "435",
-              "left": "300",
-              "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
-              "group": null,
-              "uuid": "8042e3a4-8f7e-40a2-8552-f10454b8ae8c"
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Configuration",
-              "description": null,
-              "arguments": {
-                "event_count": "{{ vars.result.event_count }}",
-                "incident_source_data": "{{ vars.result.data }}",
-                "RSANetwitnessSIEMMacroName": "{{vars.result.RSANetwitnessSIEMMacroName}}"
-              },
-              "status": null,
-              "top": "300",
-              "left": "300",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "group": null,
-              "uuid": "dd3fb236-d379-4af6-b445-da3a4e71a66b"
-            },
             {
               "@type": "WorkflowStep",
               "name": "Create Record",
@@ -460,35 +505,6 @@
               "stepType": "/api/3/workflow_step_types/2597053c-e718-44b4-8394-4d40fe26d357",
               "group": null,
               "uuid": "0f1d72d9-0adc-4eb7-8f8d-f9a9b1c25b46"
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Fetch Associated Events",
-              "description": null,
-              "arguments": {
-                "when": "{{vars.steps.Create_Record | length > 0}}",
-                "for_each": {
-                  "item": "{{vars.steps.Create_Record}}",
-                  "__bulk": false,
-                  "parallel": true,
-                  "condition": ""
-                },
-                "arguments": {
-                  "max_events": "{{vars.event_count}}",
-                  "incidentdata": "{{vars.item}}"
-                },
-                "apply_async": true,
-                "step_variables": [],
-                "pass_parent_env": false,
-                "pass_input_record": false,
-                "workflowReference": "/api/3/workflows/4a058d4e-759f-4a62-8b65-c6ca9204b0e1"
-              },
-              "status": null,
-              "top": "840",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
-              "group": null,
-              "uuid": "fc583591-7751-456c-b649-0226410e526a"
             },
             {
               "@type": "WorkflowStep",
@@ -591,6 +607,78 @@
               "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": null,
               "uuid": "7641e207-f9de-495a-aae1-8fa893ae4fb8"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Alerts Found",
+              "description": null,
+              "arguments": {
+                "conditions": [
+                  {
+                    "option": "yes",
+                    "step_iri": "/api/3/workflow_steps/0f1d72d9-0adc-4eb7-8f8d-f9a9b1c25b46",
+                    "condition": "{{ vars.incident_source_data is not none and vars.incident_source_data | length > 0 }}",
+                    "step_name": "Create Record"
+                  },
+                  {
+                    "option": "no",
+                    "default": true,
+                    "step_iri": "/api/3/workflow_steps/376b6803-a24c-48a2-92a7-3248a41d7e38",
+                    "step_name": "Stop"
+                  }
+                ]
+              },
+              "status": null,
+              "top": "435",
+              "left": "300",
+              "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
+              "group": null,
+              "uuid": "8042e3a4-8f7e-40a2-8552-f10454b8ae8c"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Configuration",
+              "description": null,
+              "arguments": {
+                "event_count": "{{ vars.result.event_count }}",
+                "incident_source_data": "{{ vars.result.data }}",
+                "RSANetwitnessSIEMMacroName": "{{vars.result.RSANetwitnessSIEMMacroName}}"
+              },
+              "status": null,
+              "top": "300",
+              "left": "300",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "dd3fb236-d379-4af6-b445-da3a4e71a66b"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Fetch Associated Events",
+              "description": null,
+              "arguments": {
+                "when": "{{vars.steps.Create_Record | length > 0}}",
+                "for_each": {
+                  "item": "{{vars.steps.Create_Record}}",
+                  "__bulk": false,
+                  "parallel": true,
+                  "condition": ""
+                },
+                "arguments": {
+                  "max_events": "{{vars.event_count}}",
+                  "incidentdata": "{{vars.item}}"
+                },
+                "apply_async": true,
+                "step_variables": [],
+                "pass_parent_env": false,
+                "pass_input_record": false,
+                "workflowReference": "/api/3/workflows/4a058d4e-759f-4a62-8b65-c6ca9204b0e1"
+              },
+              "status": null,
+              "top": "840",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/74932bdc-b8b6-4d24-88c4-1a4dfbc524f3",
+              "group": null,
+              "uuid": "fc583591-7751-456c-b649-0226410e526a"
             }
           ],
           "routes": [
@@ -601,38 +689,7 @@
               "sourceStep": "/api/3/workflow_steps/8042e3a4-8f7e-40a2-8552-f10454b8ae8c",
               "label": "yes",
               "isExecuted": false,
-              "group": null,
               "uuid": "1d791d27-ffe5-4f6b-ac33-a3fa62183ea0"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Alerts Found -> Stop",
-              "targetStep": "/api/3/workflow_steps/376b6803-a24c-48a2-92a7-3248a41d7e38",
-              "sourceStep": "/api/3/workflow_steps/8042e3a4-8f7e-40a2-8552-f10454b8ae8c",
-              "label": "no",
-              "isExecuted": false,
-              "group": null,
-              "uuid": "9a3443c5-4471-456d-9dcc-9fe76293023b"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Configuration -> Alerts Found",
-              "targetStep": "/api/3/workflow_steps/8042e3a4-8f7e-40a2-8552-f10454b8ae8c",
-              "sourceStep": "/api/3/workflow_steps/dd3fb236-d379-4af6-b445-da3a4e71a66b",
-              "label": null,
-              "isExecuted": false,
-              "group": null,
-              "uuid": "c135dc67-a896-48eb-b86d-273070abfd63"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Create Record -> Update Last Alert Pull Time",
-              "targetStep": "/api/3/workflow_steps/7641e207-f9de-495a-aae1-8fa893ae4fb8",
-              "sourceStep": "/api/3/workflow_steps/0f1d72d9-0adc-4eb7-8f8d-f9a9b1c25b46",
-              "label": null,
-              "isExecuted": false,
-              "group": null,
-              "uuid": "e18b24bd-a801-4808-816f-9e35301e8f25"
             },
             {
               "@type": "WorkflowRoute",
@@ -641,7 +698,6 @@
               "sourceStep": "/api/3/workflow_steps/229cc05d-3afb-45aa-945e-9a9d9402d87d",
               "label": null,
               "isExecuted": false,
-              "group": null,
               "uuid": "5647d4bb-87d7-4c5d-93b0-78ccf5a16f6b"
             },
             {
@@ -651,8 +707,25 @@
               "sourceStep": "/api/3/workflow_steps/2f4da677-9c38-4444-b562-784953db7ea7",
               "label": null,
               "isExecuted": false,
-              "group": null,
               "uuid": "5de7d809-c17c-4f02-9d8a-872420f7acb6"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Alerts Found -> Stop",
+              "targetStep": "/api/3/workflow_steps/376b6803-a24c-48a2-92a7-3248a41d7e38",
+              "sourceStep": "/api/3/workflow_steps/8042e3a4-8f7e-40a2-8552-f10454b8ae8c",
+              "label": "no",
+              "isExecuted": false,
+              "uuid": "9a3443c5-4471-456d-9dcc-9fe76293023b"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Configuration -> Alerts Found",
+              "targetStep": "/api/3/workflow_steps/8042e3a4-8f7e-40a2-8552-f10454b8ae8c",
+              "sourceStep": "/api/3/workflow_steps/dd3fb236-d379-4af6-b445-da3a4e71a66b",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "c135dc67-a896-48eb-b86d-273070abfd63"
             },
             {
               "@type": "WorkflowRoute",
@@ -661,14 +734,22 @@
               "sourceStep": "/api/3/workflow_steps/7641e207-f9de-495a-aae1-8fa893ae4fb8",
               "label": null,
               "isExecuted": false,
-              "group": null,
               "uuid": "cf3dc575-0746-40c7-82a5-f5732092dea4"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Create Record -> Update Last Alert Pull Time",
+              "targetStep": "/api/3/workflow_steps/7641e207-f9de-495a-aae1-8fa893ae4fb8",
+              "sourceStep": "/api/3/workflow_steps/0f1d72d9-0adc-4eb7-8f8d-f9a9b1c25b46",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "e18b24bd-a801-4808-816f-9e35301e8f25"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "71a5f83a-a33a-4c70-b50a-2271da94be6c",
-          "id": 715,
+          "id": 7802,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -685,7 +766,7 @@
           "triggerLimit": null,
           "name": "> RSA Netwitness SIEM > Fetch",
           "aliasName": null,
-          "tag": "#fortinet-fortisiem #fetch #dataingestion",
+          "tag": "#RSA Netwitness SIEM #fetch #dataingestion",
           "description": "This playbook fetch the open incidents.",
           "isActive": true,
           "debug": true,
@@ -694,42 +775,10 @@
           "parameters": [],
           "synchronous": false,
           "lastModifyDate": 1691668965,
-          "collection": "/api/3/workflow_collections/8f9859c4-8910-4eae-8a9b-0cf575ba3b65",
+          "collection": "/api/3/workflow_collections/efd883f8-0c90-4f9e-abef-3cd1718bae10",
           "versions": [],
           "triggerStep": "/api/3/workflow_steps/5c30abf5-824e-4179-b60b-963730008856",
           "steps": [
-            {
-              "@type": "WorkflowStep",
-              "name": "Compute Pages",
-              "description": null,
-              "arguments": {
-                "pages": "{{range(0,vars.total_pages)|list}}"
-              },
-              "status": null,
-              "top": "975",
-              "left": "125",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "group": null,
-              "uuid": "e1c6e256-3016-4a1c-be05-7cb5d5f3c243"
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Configuration",
-              "description": null,
-              "arguments": {
-                "minutes": "100",
-                "alert_count": 1000,
-                "event_count": 5,
-                "records_per_page": "100",
-                "RSANetwitnessSIEMMacroName": "RSANetwitnessSIEMLastPullTime_{{vars['audit_info']['cyops_playbook_iri'].split('/')[-1].replace('-','_')}}"
-              },
-              "status": null,
-              "top": "160",
-              "left": "300",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
-              "group": null,
-              "uuid": "b30e60af-82fa-4cad-83df-20a00f315585"
-            },
             {
               "@type": "WorkflowStep",
               "name": "Fetch Incidents",
@@ -744,7 +793,7 @@
                   "pageSize": "{{vars.records_per_page}}",
                   "pageNumber": "{{vars.item}}"
                 },
-                "version": "1.1.0",
+                "version": "1.2.0",
                 "for_each": {
                   "item": "{{vars.pages}}",
                   "parallel": false,
@@ -768,6 +817,26 @@
             },
             {
               "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  },
+                  "useMockOutput": "False",
+                  "_configuration_schema": "[\n    {\n       \"title\":\"Pull Alerts Created In Last X Minutes\",\n       \"required\":true,\n       \"editable\":true,\n       \"visible\":true,\n       \"type\":\"text\",\n       \"name\":\"minutes\",\n       \"tooltip\":\"Fetch Alerts from last X minutes. e.g 5\",\n       \"value\":30\n    },\n    {\n       \"title\":\"Associated Events to Pull\",\n       \"name\":\"event_count\",\n       \"type\":\"integer\",\n       \"required\":false,\n       \"editable\":true,\n       \"visible\":true,\n       \"value\":5,\n       \"tooltip\":\"The Maximum number associated events to pull for each incident\"\n    },\n    {\n       \"title\":\"Maximum Alerts To Pull\",\n       \"name\":\"alert_count\",\n       \"type\":\"integer\",\n       \"required\":false,\n       \"editable\":true,\n       \"visible\":true,\n       \"value\":1000,\n       \"tooltip\":\"The Maximum number of Alerts to be fetched from RSANetwitnessSIEM\"\n    }\n ]"
+                }
+              },
+              "status": null,
+              "top": "30",
+              "left": "300",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "5c30abf5-824e-4179-b60b-963730008856"
+            },
+            {
+              "@type": "WorkflowStep",
               "name": "Get Incident Count",
               "description": null,
               "arguments": {
@@ -779,7 +848,7 @@
                   "pageSize": "{{vars.records_per_page}}",
                   "pageNumber": 0
                 },
-                "version": "1.1.0",
+                "version": "1.2.0",
                 "connector": "rsa-netwitness-siem",
                 "operation": "get_incident_by_date_range",
                 "mock_result": "{\n    \"data\": {\n      \"items\": [\n        {\n          \"id\": \"64c95a16bef7fb6f08fdff41\",\n          \"type\": \"Log\",\n          \"title\": \"RSA Test - Fortinet Failover - virtual cluster's member state moved\",\n          \"detail\": null,\n          \"events\": [\n            {\n              \"domain\": null,\n              \"source\": {\n                \"user\": {\n                  \"adDomain\": null,\n                  \"username\": null,\n                  \"adUsername\": null,\n                  \"emailAddress\": null\n                },\n                \"device\": {\n                  \"port\": null,\n                  \"dnsDomain\": null,\n                  \"ipAddress\": null,\n                  \"macAddress\": null,\n                  \"dnsHostname\": null\n                }\n              },\n              \"destination\": {\n                \"user\": {\n                  \"adDomain\": null,\n                  \"username\": null,\n                  \"adUsername\": null,\n                  \"emailAddress\": null\n                },\n                \"device\": {\n                  \"port\": null,\n                  \"dnsDomain\": null,\n                  \"ipAddress\": null,\n                  \"macAddress\": null,\n                  \"dnsHostname\": null\n                }\n              },\n              \"eventSource\": \"10.111.100.54:50005\",\n              \"eventSourceId\": \"1830839092206\"\n            }\n          ],\n          \"source\": \"Event Stream Analysis\",\n          \"created\": \"2023-08-01T19:16:38.436Z\",\n          \"riskScore\": null\n        }                 \n      ],\n      \"hasNext\": false,\n      \"pageSize\": 1,\n      \"pageNumber\": 0,\n      \"totalItems\": 6,\n      \"totalPages\": 1,\n      \"hasPrevious\": false\n    },\n    \"status\": \"Success\",\n    \"message\": \"\",\n    \"operation\": null,\n    \"execution_time\": \"750 ms\"\n  }",
@@ -796,68 +865,19 @@
             },
             {
               "@type": "WorkflowStep",
-              "name": "Get Macro Value",
+              "name": "Set Time Configuration",
               "description": null,
               "arguments": {
-                "params": {
-                  "iri": "/api/wf/api/dynamic-variable/?format=json&name={{vars.RSANetwitnessSIEMMacroName}}",
-                  "body": "",
-                  "method": "GET"
-                },
-                "version": "3.2.4",
-                "connector": "cyops_utilities",
-                "operation": "make_cyops_request",
-                "operationTitle": "FSR: Make FortiSOAR API Call",
-                "step_variables": []
+                "macro_name": "{{vars.RSANetwitnessSIEMMacroName}}",
+                "curr_timestamp": "{{ arrow.utcnow().format('YYYY-MM-DDTHH:mm:ss.ssss')\n}}Z",
+                "last_pull_time": "{%if vars.steps.Get_Macro_Value.data['hydra:member'] | length > 0 %}{%if vars.request.env_setup %}{%if not vars.minutes or vars.minutes == ''%}0{% else %}{{((arrow.utcnow().shift(minutes=-vars.minutes)).format('YYYY-MM-DDTHH:mm:ss.ssss'))}}Z{% endif %}{% else %}{{vars.steps.Get_Macro_Value.data['hydra:member'][0]['value']}}{% endif %}{% else %}{%if not vars.minutes or vars.minutes == ''%}0{% else %}{{((arrow.utcnow().shift(minutes=-vars.minutes)).format('YYYY-MM-DDTHH:mm:ss.ssss'))}}Z{% endif %}{% endif %}"
               },
               "status": null,
-              "top": "300",
-              "left": "300",
-              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
-              "group": null,
-              "uuid": "996f7cb8-db8b-4c33-a1a3-a01b93bb1ae1"
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Get Records Count",
-              "description": null,
-              "arguments": {
-                "total_pages": "{{vars.steps.Get_Incident_Count.data.totalPages}}"
-              },
-              "status": null,
-              "top": "705",
+              "top": "435",
               "left": "300",
               "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
               "group": null,
-              "uuid": "a5828ba9-b3d8-4a11-b62b-04638921edb6"
-            },
-            {
-              "@type": "WorkflowStep",
-              "name": "Records Returned",
-              "description": null,
-              "arguments": {
-                "conditions": [
-                  {
-                    "option": "yes",
-                    "step_iri": "/api/3/workflow_steps/e1c6e256-3016-4a1c-be05-7cb5d5f3c243",
-                    "condition": "{{ vars.total_pages is not none and vars.total_pages > 0 }}",
-                    "step_name": "Compute Pages"
-                  },
-                  {
-                    "option": "no",
-                    "default": true,
-                    "step_iri": "/api/3/workflow_steps/9161aa8c-7348-45f9-9cbf-cefb5a7a542f",
-                    "step_name": "Returns No Results"
-                  }
-                ],
-                "step_variables": []
-              },
-              "status": null,
-              "top": "840",
-              "left": "300",
-              "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
-              "group": null,
-              "uuid": "9eda0253-988e-4563-aa0c-514504f6e224"
+              "uuid": "6e8056e3-47ec-44e8-ba0c-7016659264cd"
             },
             {
               "@type": "WorkflowStep",
@@ -895,62 +915,103 @@
             },
             {
               "@type": "WorkflowStep",
-              "name": "Set Time Configuration",
+              "name": "Get Macro Value",
               "description": null,
               "arguments": {
-                "macro_name": "{{vars.RSANetwitnessSIEMMacroName}}",
-                "curr_timestamp": "{{ arrow.utcnow().format('YYYY-MM-DDTHH:mm:ss.ssss')\n}}Z",
-                "last_pull_time": "{%if vars.steps.Get_Macro_Value.data['hydra:member'] | length > 0 %}{%if vars.request.env_setup %}{%if not vars.minutes or vars.minutes == ''%}0{% else %}{{((arrow.utcnow().shift(minutes=-vars.minutes)).format('YYYY-MM-DDTHH:mm:ss.ssss'))}}Z{% endif %}{% else %}{{vars.steps.Get_Macro_Value.data['hydra:member'][0]['value']}}{% endif %}{% else %}{%if not vars.minutes or vars.minutes == ''%}0{% else %}{{((arrow.utcnow().shift(minutes=-vars.minutes)).format('YYYY-MM-DDTHH:mm:ss.ssss'))}}Z{% endif %}{% endif %}"
+                "params": {
+                  "iri": "/api/wf/api/dynamic-variable/?format=json&name={{vars.RSANetwitnessSIEMMacroName}}",
+                  "body": "",
+                  "method": "GET"
+                },
+                "version": "3.2.4",
+                "connector": "cyops_utilities",
+                "operation": "make_cyops_request",
+                "operationTitle": "FSR: Make FortiSOAR API Call",
+                "step_variables": []
               },
               "status": null,
-              "top": "435",
+              "top": "300",
               "left": "300",
-              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "stepType": "/api/3/workflow_step_types/0109f35d-090b-4a2b-bd8a-94cbc3508562",
               "group": null,
-              "uuid": "6e8056e3-47ec-44e8-ba0c-7016659264cd"
+              "uuid": "996f7cb8-db8b-4c33-a1a3-a01b93bb1ae1"
             },
             {
               "@type": "WorkflowStep",
-              "name": "Start",
+              "name": "Records Returned",
               "description": null,
               "arguments": {
-                "step_variables": {
-                  "input": {
-                    "params": []
+                "conditions": [
+                  {
+                    "option": "yes",
+                    "step_iri": "/api/3/workflow_steps/e1c6e256-3016-4a1c-be05-7cb5d5f3c243",
+                    "condition": "{{ vars.total_pages is not none and vars.total_pages > 0 }}",
+                    "step_name": "Compute Pages"
                   },
-                  "useMockOutput": "False",
-                  "_configuration_schema": "[\n    {\n       \"title\":\"Pull Alerts Created In Last X Minutes\",\n       \"required\":true,\n       \"editable\":true,\n       \"visible\":true,\n       \"type\":\"text\",\n       \"name\":\"minutes\",\n       \"tooltip\":\"Fetch Alerts from last X minutes. e.g 5\",\n       \"value\":30\n    },\n    {\n       \"title\":\"Associated Events to Pull\",\n       \"name\":\"event_count\",\n       \"type\":\"integer\",\n       \"required\":false,\n       \"editable\":true,\n       \"visible\":true,\n       \"value\":5,\n       \"tooltip\":\"The Maximum number associated events to pull for each incident\"\n    },\n    {\n       \"title\":\"Maximum Alerts To Pull\",\n       \"name\":\"alert_count\",\n       \"type\":\"integer\",\n       \"required\":false,\n       \"editable\":true,\n       \"visible\":true,\n       \"value\":1000,\n       \"tooltip\":\"The Maximum number of Alerts to be fetched from RSANetwitnessSIEM\"\n    }\n ]"
-                }
+                  {
+                    "option": "no",
+                    "default": true,
+                    "step_iri": "/api/3/workflow_steps/9161aa8c-7348-45f9-9cbf-cefb5a7a542f",
+                    "step_name": "Returns No Results"
+                  }
+                ],
+                "step_variables": []
               },
               "status": null,
-              "top": "30",
+              "top": "840",
               "left": "300",
-              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "stepType": "/api/3/workflow_step_types/12254cf5-5db7-4b1a-8cb1-3af081924b28",
               "group": null,
-              "uuid": "5c30abf5-824e-4179-b60b-963730008856"
+              "uuid": "9eda0253-988e-4563-aa0c-514504f6e224"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Records Count",
+              "description": null,
+              "arguments": {
+                "total_pages": "{{vars.steps.Get_Incident_Count.data.totalPages}}"
+              },
+              "status": null,
+              "top": "705",
+              "left": "300",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "a5828ba9-b3d8-4a11-b62b-04638921edb6"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Configuration",
+              "description": null,
+              "arguments": {
+                "minutes": "100",
+                "alert_count": 1000,
+                "event_count": 5,
+                "records_per_page": "100",
+                "RSANetwitnessSIEMMacroName": "RSANetwitnessSIEMLastPullTime_{{vars['audit_info']['cyops_playbook_iri'].split('/')[-1].replace('-','_')}}"
+              },
+              "status": null,
+              "top": "160",
+              "left": "300",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "b30e60af-82fa-4cad-83df-20a00f315585"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Compute Pages",
+              "description": null,
+              "arguments": {
+                "pages": "{{range(0,vars.total_pages)|list}}"
+              },
+              "status": null,
+              "top": "975",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/04d0cf46-b6a8-42c4-8683-60a7eaa69e8f",
+              "group": null,
+              "uuid": "e1c6e256-3016-4a1c-be05-7cb5d5f3c243"
             }
           ],
           "routes": [
-            {
-              "@type": "WorkflowRoute",
-              "name": "Compute Pages -> Fetch Incidents",
-              "targetStep": "/api/3/workflow_steps/1c91e6ab-5a45-4283-b3d6-6c11466612b1",
-              "sourceStep": "/api/3/workflow_steps/e1c6e256-3016-4a1c-be05-7cb5d5f3c243",
-              "label": null,
-              "isExecuted": false,
-              "group": null,
-              "uuid": "5a086ed1-c4b8-4420-9aa8-ce9cd6bba757"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Configuration -> Get Macro Value",
-              "targetStep": "/api/3/workflow_steps/996f7cb8-db8b-4c33-a1a3-a01b93bb1ae1",
-              "sourceStep": "/api/3/workflow_steps/b30e60af-82fa-4cad-83df-20a00f315585",
-              "label": null,
-              "isExecuted": false,
-              "group": null,
-              "uuid": "b072fbe3-73d6-4459-835f-b51b2e7de4d5"
-            },
             {
               "@type": "WorkflowRoute",
               "name": "Fetch Incidents -> Return Results",
@@ -958,58 +1019,7 @@
               "sourceStep": "/api/3/workflow_steps/1c91e6ab-5a45-4283-b3d6-6c11466612b1",
               "label": null,
               "isExecuted": false,
-              "group": null,
               "uuid": "0465154c-37fd-4002-8fa7-06e67c1aeeda"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Get Incident Count -> Get Records Count",
-              "targetStep": "/api/3/workflow_steps/a5828ba9-b3d8-4a11-b62b-04638921edb6",
-              "sourceStep": "/api/3/workflow_steps/63cfc011-9e61-496f-9bf8-971335b8dd66",
-              "label": null,
-              "isExecuted": false,
-              "group": null,
-              "uuid": "ad4f1603-7fae-4c64-831a-2806ea78d017"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Get Macro Value -> Set Time Configuration",
-              "targetStep": "/api/3/workflow_steps/6e8056e3-47ec-44e8-ba0c-7016659264cd",
-              "sourceStep": "/api/3/workflow_steps/996f7cb8-db8b-4c33-a1a3-a01b93bb1ae1",
-              "label": null,
-              "isExecuted": false,
-              "group": null,
-              "uuid": "8b7b7043-cfc2-4c55-be54-2e49092c9118"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Get Records Count -> Records Returned",
-              "targetStep": "/api/3/workflow_steps/9eda0253-988e-4563-aa0c-514504f6e224",
-              "sourceStep": "/api/3/workflow_steps/a5828ba9-b3d8-4a11-b62b-04638921edb6",
-              "label": null,
-              "isExecuted": false,
-              "group": null,
-              "uuid": "d5fcbf3a-2a17-40b7-a79c-fe99eff45559"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Records Returned -> Compute Pages",
-              "targetStep": "/api/3/workflow_steps/e1c6e256-3016-4a1c-be05-7cb5d5f3c243",
-              "sourceStep": "/api/3/workflow_steps/9eda0253-988e-4563-aa0c-514504f6e224",
-              "label": "yes",
-              "isExecuted": false,
-              "group": null,
-              "uuid": "894e8585-4658-46ff-b5c2-1b6053b5a236"
-            },
-            {
-              "@type": "WorkflowRoute",
-              "name": "Records Returned -> Returns No Results",
-              "targetStep": "/api/3/workflow_steps/9161aa8c-7348-45f9-9cbf-cefb5a7a542f",
-              "sourceStep": "/api/3/workflow_steps/9eda0253-988e-4563-aa0c-514504f6e224",
-              "label": "no",
-              "isExecuted": false,
-              "group": null,
-              "uuid": "7ecef369-60f8-446f-9297-92afca5b2225"
             },
             {
               "@type": "WorkflowRoute",
@@ -1018,8 +1028,16 @@
               "sourceStep": "/api/3/workflow_steps/6e8056e3-47ec-44e8-ba0c-7016659264cd",
               "label": null,
               "isExecuted": false,
-              "group": null,
               "uuid": "2e86e09d-e562-4aca-8668-b734ca44d39b"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Compute Pages -> Fetch Incidents",
+              "targetStep": "/api/3/workflow_steps/1c91e6ab-5a45-4283-b3d6-6c11466612b1",
+              "sourceStep": "/api/3/workflow_steps/e1c6e256-3016-4a1c-be05-7cb5d5f3c243",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "5a086ed1-c4b8-4420-9aa8-ce9cd6bba757"
             },
             {
               "@type": "WorkflowRoute",
@@ -1028,14 +1046,67 @@
               "sourceStep": "/api/3/workflow_steps/5c30abf5-824e-4179-b60b-963730008856",
               "label": null,
               "isExecuted": false,
-              "group": null,
               "uuid": "5aa37f02-dd27-4077-9dad-269aea512518"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Records Returned -> Returns No Results",
+              "targetStep": "/api/3/workflow_steps/9161aa8c-7348-45f9-9cbf-cefb5a7a542f",
+              "sourceStep": "/api/3/workflow_steps/9eda0253-988e-4563-aa0c-514504f6e224",
+              "label": "no",
+              "isExecuted": false,
+              "uuid": "7ecef369-60f8-446f-9297-92afca5b2225"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Records Returned -> Compute Pages",
+              "targetStep": "/api/3/workflow_steps/e1c6e256-3016-4a1c-be05-7cb5d5f3c243",
+              "sourceStep": "/api/3/workflow_steps/9eda0253-988e-4563-aa0c-514504f6e224",
+              "label": "yes",
+              "isExecuted": false,
+              "uuid": "894e8585-4658-46ff-b5c2-1b6053b5a236"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Macro Value -> Set Time Configuration",
+              "targetStep": "/api/3/workflow_steps/6e8056e3-47ec-44e8-ba0c-7016659264cd",
+              "sourceStep": "/api/3/workflow_steps/996f7cb8-db8b-4c33-a1a3-a01b93bb1ae1",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "8b7b7043-cfc2-4c55-be54-2e49092c9118"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Incident Count -> Get Records Count",
+              "targetStep": "/api/3/workflow_steps/a5828ba9-b3d8-4a11-b62b-04638921edb6",
+              "sourceStep": "/api/3/workflow_steps/63cfc011-9e61-496f-9bf8-971335b8dd66",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "ad4f1603-7fae-4c64-831a-2806ea78d017"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Configuration -> Get Macro Value",
+              "targetStep": "/api/3/workflow_steps/996f7cb8-db8b-4c33-a1a3-a01b93bb1ae1",
+              "sourceStep": "/api/3/workflow_steps/b30e60af-82fa-4cad-83df-20a00f315585",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "b072fbe3-73d6-4459-835f-b51b2e7de4d5"
+            },
+            {
+              "@type": "WorkflowRoute",
+              "name": "Get Records Count -> Records Returned",
+              "targetStep": "/api/3/workflow_steps/9eda0253-988e-4563-aa0c-514504f6e224",
+              "sourceStep": "/api/3/workflow_steps/a5828ba9-b3d8-4a11-b62b-04638921edb6",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "d5fcbf3a-2a17-40b7-a79c-fe99eff45559"
             }
           ],
           "groups": [],
           "priority": null,
           "uuid": "76d15ead-fcda-475b-8497-1974fb0a3e52",
-          "id": 714,
+          "id": 7803,
           "owners": [],
           "isPrivate": false,
           "deletedAt": null,
@@ -1045,6 +1116,175 @@
             "fetch",
             "rsa-netwitness-siem"
           ]
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Hosts List",
+          "aliasName": null,
+          "tag": "#RSA Netwitness SIEM",
+          "description": "Retrieves a list of all the hosts' information based on the service ID specified. It provides a paged response with a standard paged response structure.",
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": null,
+          "collection": "/api/3/workflow_collections/efd883f8-0c90-4f9e-abef-3cd1718bae10",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/d99629dd-8321-4b0f-9b31-04e67bd5b4b6",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Hosts List",
+              "description": null,
+              "arguments": {
+                "name": "RSA Netwitness SIEM",
+                "config": "''",
+                "params": {
+                  "criteria": "{\"criteria\":{\"criteriaList\":[{\"criteriaList\":[],\"expressionList\":[{\"propertyName\":\"hostName\",\"restrictionType\":\"LIKE\",\"propertyValues\":[{\"value\":\"WIN-854PACLCQ07-VC\",\"relative\":false}]}],\"predicateType\":\"AND\"},{\"criteriaList\":[],\"expressionList\":[{\"propertyName\":\"riskScore\",\"restrictionType\":\"BETWEEN\",\"propertyValues\":[{\"value\":0,\"relative\":false},{\"value\":100,\"relative\":false}]}],\"predicateType\":\"OR\"}],\"expressionList\":[],\"predicateType\":\"AND\"},\"sort\":{\"keys\":[\"riskScore\"],\"descending\":true}}"
+                },
+                "version": "1.2.0",
+                "connector": "rsa-netwitness-siem",
+                "operation": "get_hosts",
+                "operationTitle": "Get Hosts List"
+              },
+              "status": null,
+              "top": "120",
+              "left": "188",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "4bba04b5-6084-436f-9d6a-6878e68c2af6"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "route": "e63bb842-924d-4a5e-b512-71bf4fa956a9",
+                "title": "RSA Netwitness SIEM: Get Hosts List",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "executeButtonText": "Execute",
+                "noRecordExecution": true,
+                "singleRecordExecution": false
+              },
+              "status": null,
+              "top": "20",
+              "left": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a",
+              "group": null,
+              "uuid": "d99629dd-8321-4b0f-9b31-04e67bd5b4b6"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start-> Get Hosts List",
+              "targetStep": "/api/3/workflow_steps/4bba04b5-6084-436f-9d6a-6878e68c2af6",
+              "sourceStep": "/api/3/workflow_steps/d99629dd-8321-4b0f-9b31-04e67bd5b4b6",
+              "label": null,
+              "isExecuted": false,
+              "uuid": "c6840b2d-45c3-4f07-8aae-1c1dfe814aca"
+            }
+          ],
+          "groups": [],
+          "priority": null,
+          "uuid": "86c22b53-2c63-4a79-a3c2-963799b0257d",
+          "id": 7804,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": [
+            "rsa-netwitness-siem",
+            "Rsa"
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "7b9f2498-5035-4376-85b4-3237bbe87f43",
+          "collection": "/api/3/workflow_collections/a1bf6334-f785-4134-b4ef-44a76d3a0dee",
+          "triggerLimit": null,
+          "description": "Retrieves a list of all the services with their service IDs.",
+          "name": "Get Service IDs",
+          "tag": "#RSA Netwitness SIEM",
+          "recordTags": [
+            "Rsa",
+            "rsa-netwitness-siem"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/84ff3e72-ef8f-4767-a789-1b0fa1aaaf2e",
+          "steps": [
+            {
+              "uuid": "84ff3e72-ef8f-4767-a789-1b0fa1aaaf2e",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "008baf9a-fed3-4071-8a6a-e578d18d20e0",
+                "title": "RSA Netwitness SIEM: Get Service IDs",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "4266091c-fdb2-4d0d-a92f-2288fa795818",
+              "@type": "WorkflowStep",
+              "name": "Get Service IDs",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "RSA Netwitness SIEM",
+                "config": "''",
+                "params": [],
+                "version": "1.2.0",
+                "connector": "rsa-netwitness-siem",
+                "operation": "get_service_id",
+                "operationTitle": "Get Service IDs"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "68ac985d-f81a-4e48-9d8b-cdc75d6b3f90",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Service IDs",
+              "sourceStep": "/api/3/workflow_steps/84ff3e72-ef8f-4767-a789-1b0fa1aaaf2e",
+              "targetStep": "/api/3/workflow_steps/4266091c-fdb2-4d0d-a92f-2288fa795818"
+            }
+          ]
         }
       ]
     }
@@ -1052,6 +1292,7 @@
   "exported_tags": [
     "dataingestion",
     "rsa-netwitness-siem",
+    "Rsa",
     "create",
     "ingest",
     "fetch"

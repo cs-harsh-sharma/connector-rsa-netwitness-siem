@@ -1,3 +1,8 @@
-#### Following enhancements have been made to the RSA NetWitness SIEM Connector in version 1.1.0:
+#### What's Improved
 
-- The connector now supports data ingestion using the Data Ingestion Wizard.
+Following enhancements have been made to the RSA Netwitness SIEM in version 1.2.0: 
+
+- Added the following actions and playbooks: 
+    - Get Alerts
+    - Get Hosts List
+    - Get Service IDs

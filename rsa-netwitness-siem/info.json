@@ -5,7 +5,7 @@
   "publisher": "Fortinet",
   "cs_approved": false,
   "cs_compatible": true,
-  "version": "1.1.0",
+  "version": "1.2.0",
   "category": "SIEM",
   "icon_small_name": "rsa_small.png",
   "icon_large_name": "rsa_large.png",
@@ -13,7 +13,7 @@
   "ingestion_modes":[
      "scheduled"
   ],  
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.1.0/rsa-netwitness-siem/673/rsa-netwitness-siem-v1-1-0",
+  "help_online": "",
   "configuration": {
     "fields": [
       {
@@ -211,7 +211,7 @@
           "visible": true,
           "type": "integer",
           "name": "pageNumber",
-          "tooltip": "(Optional) Specify the page number from which to request for data.",
+          "tooltip": "Specify the page number from which to request for data.",
           "description": "(Optional) Specify the page number from which to request for data."
         },
         {
@@ -221,7 +221,7 @@
           "visible": true,
           "type": "integer",
           "name": "pageSize",
-          "tooltip": "(Optional) Specify the maximum number of records that you want to return in a single page.",
+          "tooltip": "Specify the maximum number of records that you want to return in a single page.",
           "description": "(Optional) Specify the maximum number of records that you want to return in a single page."
         }
       ]
@@ -307,7 +307,7 @@
           "visible": true,
           "type": "integer",
           "name": "pageNumber",
-          "tooltip": "(Optional) Specify the page number from which you want to request for data.",
+          "tooltip": "Specify the page number from which you want to request for data.",
           "description": "(Optional) Specify the page number from which you want to request for data."
         },
         {
@@ -317,10 +317,357 @@
           "visible": true,
           "type": "integer",
           "name": "pageSize",
-          "tooltip": "(Optional) Specify the maximum number of records that you want to return in a single page.",
+          "tooltip": "Specify the maximum number of records that you want to return in a single page.",
           "description": "(Optional) Specify the maximum number of records that you want to return in a single page."
         }
       ]
+    },
+    {
+      "operation": "get_alerts",
+      "title": "Get Alerts",
+      "description": "Retrieves a list of alerts from RSA Netwitness SIEM based on the specified parameters.",
+      "category": "investigation",
+      "annotation": "get_alerts",
+      "output_schema": [
+          {
+              "id": "",
+              "receivedTime": "",
+              "status": "",
+              "errorMessage": "",
+              "originalHeaders": {
+                  "name": "",
+                  "description": "",
+                  "version": "",
+                  "severity": "",
+                  "timestamp": "",
+                  "signatureId": "",
+                  "deviceVendor": "",
+                  "deviceProduct": "",
+                  "deviceVersion": ""
+              },
+              "originalRawAlert": "",
+              "originalAlert": {
+                  "instance_id": "",
+                  "engineUri": "",
+                  "detail": "",
+                  "events": [
+                      {
+                          "ip_proto": "",
+                          "ip_src": "",
+                          "lifetime": "",
+                          "medium": "",
+                          "sessionid": "",
+                          "rid": "",
+                          "packets": "",
+                          "eth_src": "",
+                          "password": "",
+                          "analysis_service": [],
+                          "latdec_dst": "",
+                          "payload": "",
+                          "tcp_flags": "",
+                          "longdec_src": "",
+                          "action": [],
+                          "city_src": "",
+                          "country_dst": "",
+                          "org_dst": "",
+                          "requestpayload": "",
+                          "responsepayload": "",
+                          "sourcefile": "",
+                          "event_source_id": "",
+                          "esa_time": "",
+                          "tcp_dstport": "",
+                          "tcp_srcport": "",
+                          "streams": "",
+                          "domain_dst": "",
+                          "sld": "",
+                          "tld": "",
+                          "ip_dst": "",
+                          "longdec_dst": "",
+                          "eth_dst": "",
+                          "eth_type": "",
+                          "latdec_src": "",
+                          "size": "",
+                          "netname": [],
+                          "service": "",
+                          "country_src": "",
+                          "tcpflags": "",
+                          "city_dst": "",
+                          "time": "",
+                          "org_src": "",
+                          "analysis_session": [],
+                          "did": "",
+                          "username": []
+                      }
+                  ]
+              },
+              "incidentId": "",
+              "partOfIncident": "",
+              "incidentCreated": "",
+              "pinnedEventIds": "",
+              "persisted": "",
+              "name": "",
+              "alert": {
+                  "destination_country": [],
+                  "groupby_type": "",
+                  "user_summary": [],
+                  "groupby_domain": "",
+                  "source": "",
+                  "type": [],
+                  "groupby_user_src": "",
+                  "groupby_source_country": "",
+                  "groupby_destination_country": "",
+                  "groupby_analysis_session": "",
+                  "groupby_analysis_file": "",
+                  "signature_id": "",
+                  "groupby_filename": "",
+                  "groupby_data_hash": "",
+                  "groupby_domain_dst": "",
+                  "groupby_destination_ip": "",
+                  "groupby_host_dst": "",
+                  "groupby_source_ip": "",
+                  "groupby_source_username": "",
+                  "groupby_detector_ip": "",
+                  "events": [
+                      {
+                          "data": [
+                              {
+                                  "filename": "",
+                                  "size": "",
+                                  "hash": ""
+                              }
+                          ],
+                          "destination": {
+                              "device": {
+                                  "compliance_rating": "",
+                                  "netbios_name": "",
+                                  "port": "",
+                                  "mac_address": "",
+                                  "criticality": "",
+                                  "asset_type": "",
+                                  "ip_address": "",
+                                  "facility": "",
+                                  "business_unit": "",
+                                  "geolocation": {
+                                      "country": "",
+                                      "city": "",
+                                      "latitude": "",
+                                      "organization": "",
+                                      "domain": "",
+                                      "longitude": ""
+                                  }
+                              },
+                              "user": {
+                                  "email_address": "",
+                                  "ad_username": "",
+                                  "ad_domain": "",
+                                  "username": ""
+                              }
+                          },
+                          "domain_src": "",
+                          "description": "",
+                          "source": {
+                              "device": {
+                                  "compliance_rating": "",
+                                  "netbios_name": "",
+                                  "port": "",
+                                  "mac_address": "",
+                                  "criticality": "",
+                                  "asset_type": "",
+                                  "ip_address": "",
+                                  "facility": "",
+                                  "business_unit": "",
+                                  "geolocation": {
+                                      "country": "",
+                                      "city": "",
+                                      "latitude": "",
+                                      "organization": "",
+                                      "domain": "",
+                                      "longitude": ""
+                                  }
+                              },
+                              "user": {
+                                  "email_address": "",
+                                  "ad_username": "",
+                                  "ad_domain": "",
+                                  "username": ""
+                              }
+                          },
+                          "analysis_file": "",
+                          "type": "",
+                          "host_scr": "",
+                          "enrichment": "",
+                          "user_src": "",
+                          "analysis_service": "",
+                          "file": "",
+                          "detected_by": "",
+                          "from": "",
+                          "timestamp": "",
+                          "custom_meta_key": "",
+                          "related_links": [
+                              {
+                                  "type": "",
+                                  "url": ""
+                              }
+                          ],
+                          "domain_dst": "",
+                          "user_dst": "",
+                          "host_dst": "",
+                          "size": "",
+                          "domain": "",
+                          "to": "",
+                          "detector": {
+                              "device_class": "",
+                              "ip_address": "",
+                              "product_name": ""
+                          },
+                          "user": "",
+                          "analysis_session": "",
+                          "username": ""
+                      }
+                  ],
+                  "timestamp": "",
+                  "severity": "",
+                  "groupby_custom_meta_key": "",
+                  "related_links": [],
+                  "host_summary": "",
+                  "groupby_username": "",
+                  "risk_score": "",
+                  "groupby_destination_port": "",
+                  "groupby_c2domain": "",
+                  "groupby_user_dst": "",
+                  "source_country": [],
+                  "name": "",
+                  "numEvents": "",
+                  "groupby_host_src": "",
+                  "groupby_analysis_service": ""
+              },
+              "timestamp": ""
+          }
+      ],
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Field Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "meta_name",
+          "tooltip": "Specify the field name based on which the alerts are retrieved.",
+          "description": "Specify the field name based on which the alerts are retrieved."
+        },
+        {
+          "title": "Field Value",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "meta_value",
+          "tooltip": "Specify the value for the field based on which the alerts are retrieved.",
+          "description": "Specify the value for the field based on which the alerts are retrieved."
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "numberOfRecords",
+          "tooltip": "Specify the maximum number of records that you want to return in response. By default, this is set to 10.",
+          "description": "(Optional) Specify the maximum number of records that you want to return in response. By default, this is set to 10."
+        }
+      ]
+    },
+    {
+      "operation": "get_hosts",
+      "title": "Get Hosts List",
+      "description": "Retrieves a list of all the hosts' information based on the service ID specified. It provides a paged response with a standard paged response structure.",
+      "category": "investigation",
+      "annotation": "get_hosts",
+      "output_schema": {
+        "items" : [{
+            "agentId" : "",
+            "hostName" : "",
+            "riskScore" : "",
+            "networkInterfaces" : [{
+              "name" : "",
+              "macAddress" : "",
+              "ipv4" : [],
+              "ipv6" : [],
+              "networkIdv6" : [],
+              "gateway" : [],
+              "dns" : [],
+              "promiscuous" : ""
+            }],
+            "lastSeenTime" : ""
+        }],
+        "pageNumber" : "",
+        "pageSize" : "",
+        "totalPages" : "",
+        "totalItems" : "",
+        "hasNext" : "",
+        "hasPrevious" : ""
+      },
+      "enabled": true,
+      "parameters": [
+        {
+          "title": "Service ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "serviceId",
+          "tooltip": "Specify the service ID to connect to the specific Endpoint Server.",
+          "description": "Specify the service ID to connect to the specific Endpoint Server."
+        },
+        {
+          "title": "Filter Criteria",
+          "name": "criteria",
+          "type": "json",
+          "value": "{\"criteria\":{\"criteriaList\":[{\"criteriaList\":[],\"expressionList\":[{\"propertyName\":\"hostName\",\"restrictionType\":\"LIKE\",\"propertyValues\":[{\"value\":\"WIN-854PACLCQ07-VC\",\"relative\":false}]}],\"predicateType\":\"AND\"},{\"criteriaList\":[],\"expressionList\":[{\"propertyName\":\"riskScore\",\"restrictionType\":\"BETWEEN\",\"propertyValues\":[{\"value\":0,\"relative\":false},{\"value\":100,\"relative\":false}]}],\"predicateType\":\"OR\"}],\"expressionList\":[],\"predicateType\":\"AND\"},\"sort\":{\"keys\":[\"riskScore\"],\"descending\":true}}",
+          "tooltip": "Specify the JSON containing filter and sort criteria. The following fields are supported for filtering and sorting 'agentId', 'hostName', 'riskScore' and 'networkInterfaces.ipv4'. ",
+          "description": "(Optional) Specify the JSON containing filter and sort criteria. The following fields are supported for filtering and sorting 'agentId', 'hostName', 'riskScore' and 'networkInterfaces.ipv4'.",
+          "required": false,
+          "editable": true,
+          "visible": true
+        },
+        {
+          "title": "Page Number",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "pageNumber",
+          "tooltip": "Specify the page number from which to request for data.",
+          "description": "(Optional) Specify the page number from which to request for data."
+        },
+        {
+          "title": "Page Size",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "pageSize",
+          "tooltip": "Specify the maximum number of records that you want to return in a single page.",
+          "description": "(Optional) Specify the maximum number of records that you want to return in a single page."
+        }
+      ]
+    },
+    {
+      "operation": "get_service_id",
+      "title": "Get Service IDs",
+      "description": "Retrieves a list of all the services with their service IDs.",
+      "category": "investigation",
+      "annotation": "get_service_id",
+      "output_schema": [{
+          "id" : "",
+          "name" : "",
+          "displayName" : "",
+          "host" : "",
+          "version" : ""
+      }],
+      "enabled": true,
+      "parameters": []
     }
   ]
 }

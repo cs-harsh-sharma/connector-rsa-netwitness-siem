@@ -1,24 +1,16 @@
-""" Copyright start
-  Copyright (C) 2008 - 2023 Fortinet Inc.
-  All rights reserved.
-  FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
-  Copyright end """
+"""
+Copyright start
+MIT License
+Copyright (c) 2024 Fortinet Inc
+Copyright end
+"""
 
 import requests
-
+import json
 from connectors.core.connector import get_logger, ConnectorError
 from connectors.core.connector import Connector
 
 logger = get_logger('rsa-netwitness-siem')
-
-messages_codes = {
-    400: 'Invalid input',
-    401: 'Unauthorized: Invalid credentials',
-    500: 'Invalid input',
-    404: 'Invalid input',
-    'ssl_error': 'SSL certificate validation failed',
-    'timeout_error': 'The request timed out while trying to connect to the remote server'
-}
 
 
 class NetwitnessSIEM():
@@ -54,9 +46,6 @@ class NetwitnessSIEM():
                     return {"Status": "Success", "Message": "Executed successfully"}
                 result = response.json()
                 return result
-            elif messages_codes[response.status_code]:
-                logger.error('{}'.format(messages_codes[response.status_code]))
-                raise ConnectorError('{}'.format(messages_codes[response.status_code]))
             else:
                 logger.error(
                     'Fail To request API {0} response is : {1} with reason: {2}'.format(str(url), str(response.content),
@@ -68,10 +57,12 @@ class NetwitnessSIEM():
 
         except requests.exceptions.SSLError as e:
             logger.exception('{}'.format(e))
-            raise ConnectorError('{}'.format(messages_codes['ssl_error']))
+            raise ConnectorError('SSL certificate validation failed')
+        except requests.exceptions.ConnectTimeout:
+            raise ConnectorError('The request timed out while trying to connect to the server')
         except requests.exceptions.ConnectionError as e:
             logger.exception('{}'.format(e))
-            raise ConnectorError('{}'.format(messages_codes['timeout_error']))
+            raise ConnectorError('A connection error occurred')
         except Exception as e:
             logger.exception('{}'.format(e))
             raise ConnectorError('{}'.format(e))
@@ -155,7 +146,57 @@ def get_incidents_alerts(config, params):
         raise ConnectorError(Err)
 
 
+def get_alerts(config, params):
+    try:
+        obj = NetwitnessSIEM(config)
+        payload = build_payload(params)
+        data = {"includeFields": "null",
+                "numberOfRecords": "10"}
+        if payload.get('numberOfRecords'):
+            data.update({"numberOfRecords": str(payload.get('numberOfRecords'))})
+        if payload.get('meta_name') and payload.get('meta_value'):
+            data.update({"meta_name": str(payload.get('meta_name')), "meta_value": str(payload.get('meta_value'))})
+        response = obj.make_api_call(updated_headers={"Accept": "application/json;charset=UTF-8", "Content-Type": "text/plain;charset=ISO-8859-1"},
+                                     endpoint="/rest/api/alert/fetch", data=json.dumps(data))
+        return response
+    except Exception as Err:
+        logger.error('Exception occurred: {}'.format(Err))
+        raise ConnectorError(Err)
+
+
+def get_hosts(config, params):
+    try:
+        obj = NetwitnessSIEM(config)
+        payload = build_payload(params)
+        if payload.get('criteria'):
+            json_data = payload.pop('criteria')
+            response = obj.make_api_call(updated_headers={"Accept": "application/json;charset=UTF-8"},
+                                         endpoint="/rest/api/hosts", params=payload, json=json_data)
+        else:
+            response = obj.make_api_call(updated_headers={"Accept": "application/json;charset=UTF-8"},
+                                         endpoint="/rest/api/hosts", params=payload)
+        return response
+    except Exception as Err:
+        logger.error('Exception occurred: {}'.format(Err))
+        raise ConnectorError(Err)
+
+
+def get_service_id(config, params):
+    try:
+        obj = NetwitnessSIEM(config)
+        response = obj.make_api_call(
+            updated_headers={"Accept": "application/json;charset=UTF-8", "Content-Type": "application/json;charset=UTF-8"},
+            endpoint="/rest/api/services")
+        return response
+    except Exception as Err:
+        logger.error('Exception occurred: {}'.format(Err))
+        raise ConnectorError(Err)
+
+
 operations = {'get_incident': get_incident,
               'get_incident_by_date_range': get_incident_by_date_range,
-              'get_incidents_alerts': get_incidents_alerts
+              'get_incidents_alerts': get_incidents_alerts,
+              'get_alerts': get_alerts,
+              'get_hosts': get_hosts,
+              'get_service_id': get_service_id
               }

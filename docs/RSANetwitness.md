@@ -243,8 +243,8 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Get Alerts
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Field Name</td><td>Specify the field of the alert document based on which the incident query to be made.
-</td></tr><tr><td>Field Value</td><td>Specify the value for the field of the alert document based on which the incident query to be made.
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Field Name</td><td>Specify the field name based on which the alerts are retrieved.
+</td></tr><tr><td>Field Value</td><td>Specify the value for the field based on which the alerts are retrieved.
 </td></tr><tr><td>Limit</td><td>(Optional) Specify the maximum number of records that you want to return in response. By default, this is set to 10.
 </td></tr></tbody></table>
 

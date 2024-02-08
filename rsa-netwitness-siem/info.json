@@ -553,8 +553,8 @@
           "visible": true,
           "type": "text",
           "name": "meta_name",
-          "tooltip": "Specify the field of the alert document based on which the incident query to be made.",
-          "description": "Specify the field of the alert document based on which the incident query to be made."
+          "tooltip": "Specify the field name based on which the alerts are retrieved.",
+          "description": "Specify the field name based on which the alerts are retrieved."
         },
         {
           "title": "Field Value",
@@ -563,8 +563,8 @@
           "visible": true,
           "type": "text",
           "name": "meta_value",
-          "tooltip": "Specify the value for the field of the alert document based on which the incident query to be made.",
-          "description": "Specify the value for the field of the alert document based on which the incident query to be made."
+          "tooltip": "Specify the value for the field based on which the alerts are retrieved.",
+          "description": "Specify the value for the field based on which the alerts are retrieved."
         },
         {
           "title": "Limit",

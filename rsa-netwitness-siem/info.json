@@ -13,7 +13,7 @@
   "ingestion_modes":[
      "scheduled"
   ],  
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.2.0/rsa-netwitness-siem/784/rsa-netwitness-siem-v1-2-0",
   "configuration": {
     "fields": [
       {
@@ -23,7 +23,7 @@
         "visible": true,
         "type": "text",
         "name": "server_url",
-        "description": "URL of the RSA Netwitness SIEM server to which you will connect and perform the automated operations."
+        "description": "URL of the RSA NetWitness SIEM server to connect and perform the automated operations."
       },
       {
         "title": "Username",
@@ -32,7 +32,7 @@
         "editable": true,
         "visible": true,
         "type": "text",
-        "description": "Username of the RSA Netwitness SIEM server to which you will connect and perform the automated operations."
+        "description": "Username of the RSA NetWitness SIEM server to connect and perform the automated operations."
       },
       {
         "title": "Password",
@@ -41,7 +41,7 @@
         "editable": true,
         "visible": true,
         "type": "password",
-        "description": "Password of the RSA Netwitness SIEM server to which you will connect and perform the automated operations."
+        "description": "Password of the RSA NetWitness SIEM server to connect and perform the automated operations."
       },
       {
         "title": "Verify SSL",
@@ -51,7 +51,7 @@
         "type": "checkbox",
         "name": "verify_ssl",
         "value": true,
-        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set as True."
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not. By default, this option is set to True."
       }
     ]
   },
@@ -59,7 +59,7 @@
     {
       "operation": "get_incident",
       "title": "Get Incident",
-      "description": "Retrieves a single incident from RSA Netwitness SIEM based on the incident’s unique identifier.",
+      "description": "Retrieves a single incident from RSA NetWitness SIEM based on the incident’s unique identifier.",
       "category": "investigation",
       "annotation": "get_incident",
       "output_schema": {
@@ -123,7 +123,7 @@
     {
       "operation": "get_incident_by_date_range",
       "title": "Get Incidents by Date Range",
-      "description": "Retrieves all incidents from RSA Netwitness SIEM based on the date and time they were created in RSA Netwitness SIEM.",
+      "description": "Retrieves all incidents from RSA NetWitness SIEM based on the date and time they were created in RSA NetWitness SIEM.",
       "category": "investigation",
       "annotation": "get_incident_by_date_range",
       "output_schema": {
@@ -229,7 +229,7 @@
     {
       "operation": "get_incidents_alerts",
       "title": "Get Incident Related Alerts",
-      "description": "Retrieves all alerts that are associated with an incident from RSA Netwitness SIEM based on the incident’s unique identifier.",
+      "description": "Retrieves all alerts that are associated with an incident from RSA NetWitness SIEM based on the incident’s unique identifier.",
       "category": "investigation",
       "annotation": "get_incidents_alerts",
       "output_schema": {
@@ -297,8 +297,8 @@
           "visible": true,
           "type": "text",
           "name": "id",
-          "tooltip": "Specify the unique identifier of the incident whose associated alerts you want to retrieve the incident from RSA NetWitness SIEM.",
-          "description": "Specify the unique identifier of the incident whose associated alerts you want to retrieve the incident from RSA NetWitness SIEM."
+          "tooltip": "Specify the unique identifier of the incident whose associated alerts you want to retrieve from RSA NetWitness SIEM.",
+          "description": "Specify the unique identifier of the incident whose associated alerts you want to retrieve from RSA NetWitness SIEM."
         },
         {
           "title": "Page Number",
@@ -325,7 +325,7 @@
     {
       "operation": "get_alerts",
       "title": "Get Alerts",
-      "description": "Retrieves a list of alerts from RSA Netwitness SIEM based on the specified parameters.",
+      "description": "Retrieves a list of alerts from RSA NetWitness SIEM based on the field values and other parameters that you have specified.",
       "category": "investigation",
       "annotation": "get_alerts",
       "output_schema": [
@@ -553,8 +553,8 @@
           "visible": true,
           "type": "text",
           "name": "meta_name",
-          "tooltip": "Specify the field name based on which the alerts are retrieved.",
-          "description": "Specify the field name based on which the alerts are retrieved."
+          "tooltip": "Specify the field name based on which to retrieve the alerts.",
+          "description": "Specify the field name based on which to retrieve the alerts."
         },
         {
           "title": "Field Value",
@@ -563,8 +563,8 @@
           "visible": true,
           "type": "text",
           "name": "meta_value",
-          "tooltip": "Specify the value for the field based on which the alerts are retrieved.",
-          "description": "Specify the value for the field based on which the alerts are retrieved."
+          "tooltip": "Specify the value for the field based on which to retrieve the alerts. ",
+          "description": "Specify the value for the field based on which to retrieve the alerts. "
         },
         {
           "title": "Limit",
@@ -581,7 +581,7 @@
     {
       "operation": "get_hosts",
       "title": "Get Hosts List",
-      "description": "Retrieves a list of all the hosts' information based on the service ID specified. It provides a paged response with a standard paged response structure.",
+      "description": "Retrieves a list of all the hosts' information based on the service ID and other filter criteria that you have specified. It provides a paged response with a standard paged response structure.",
       "category": "investigation",
       "annotation": "get_hosts",
       "output_schema": {
@@ -617,16 +617,16 @@
           "visible": true,
           "type": "text",
           "name": "serviceId",
-          "tooltip": "Specify the service ID to connect to the specific Endpoint Server.",
-          "description": "Specify the service ID to connect to the specific Endpoint Server."
+          "tooltip": "Specify the service ID to connect to the specific endpoint server.",
+          "description": "Specify the service ID to connect to the specific endpoint server."
         },
         {
           "title": "Filter Criteria",
           "name": "criteria",
           "type": "json",
           "value": "{\"criteria\":{\"criteriaList\":[{\"criteriaList\":[],\"expressionList\":[{\"propertyName\":\"hostName\",\"restrictionType\":\"LIKE\",\"propertyValues\":[{\"value\":\"WIN-854PACLCQ07-VC\",\"relative\":false}]}],\"predicateType\":\"AND\"},{\"criteriaList\":[],\"expressionList\":[{\"propertyName\":\"riskScore\",\"restrictionType\":\"BETWEEN\",\"propertyValues\":[{\"value\":0,\"relative\":false},{\"value\":100,\"relative\":false}]}],\"predicateType\":\"OR\"}],\"expressionList\":[],\"predicateType\":\"AND\"},\"sort\":{\"keys\":[\"riskScore\"],\"descending\":true}}",
-          "tooltip": "Specify the JSON containing filter and sort criteria. The following fields are supported for filtering and sorting 'agentId', 'hostName', 'riskScore' and 'networkInterfaces.ipv4'. ",
-          "description": "(Optional) Specify the JSON containing filter and sort criteria. The following fields are supported for filtering and sorting 'agentId', 'hostName', 'riskScore' and 'networkInterfaces.ipv4'.",
+          "tooltip": "Specify the JSON containing filter and sort criteria. The following fields are supported for filtering and sorting: 'agentId', 'hostName', 'riskScore' and 'networkInterfaces.ipv4'. ",
+          "description": "(Optional) Specify the JSON containing filter and sort criteria. The following fields are supported for filtering and sorting: 'agentId', 'hostName', 'riskScore' and 'networkInterfaces.ipv4'.",
           "required": false,
           "editable": true,
           "visible": true
